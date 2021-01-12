@@ -249,7 +249,7 @@ function colocaCP(localidad) {
 
 function guardarDatos(mdl_localidad, mdl_seccion, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_cp, mdl_tel_celular, mdl_tel_alterno, mdl_email, mdl_comentarios) {
     $.ajax({
-        url: '../ra.view/RegistrarNuevoAfiliadoView.php',
+        url: './ra.view/RegistrarNuevoAfiliadoView.php',
         dataType: 'json',
         type: 'post',
         data: {

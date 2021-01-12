@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atenco independiente</title>
+    <link rel="stylesheet" type="text/css" href="./ra.web/css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./ra.web/css/dataTables/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="./ra.web/css/dataTables/css/dataTables.responsive.css">
+    <link rel="stylesheet" href="./ra.web/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="./ra.web/css/animate.css">
+    <link rel="stylesheet" href="./ra.web/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./ra.web/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="./ra.web/css/magnific-popup.css">
+    <link rel="stylesheet" href="./ra.web/css/aos.css">
+
+    <link rel="stylesheet" href="./ra.web/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="ra.web/css/flaticon.css">
+    <link rel="stylesheet" href="ra.web/css/icomoon.css">
+    <link rel="stylesheet" href="ra.web/css/style.css">
+    <link rel="stylesheet" href="./ra.web/css/index.css">
+</head>
+
+<body>
+    <!--Nav-->
+    <nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container-fluid px-md-5">
+            <a class="navbar-brand" href="index.html">Atenco <span>Independiente</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+        </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+                    <li class="nav-item"><a href="secciones.html" class="nav-link">Secciones</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" onclick="mostrarModalAgregarAfiliado();">Afiliate</a></li>
+                    <!--<li class="nav-item"><a href="./login.php" class="nav-link">Inicio de Sesión</a></li>-->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--End Nav-->
+    <div class="hero-wrap js-fullheight" style="background-image: url('./ra.web/img/img3.jpg');" height: 890px; data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container-fluid px-md-5">
+            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
+                <div class="col-md-6 ftco-animate">
+                    <!--<h2 class="subheading">Product Liabilty &amp; Personal Injury</h2>-->
+                    <h1 class="mb-4">Por un ATENCO independiente</h1>
+                    <p><a href="#" class="btn-custom mr-md-4">Get Legal Advice <span class="ion-ios-arrow-forward"></span></a> <a href="#" class="btn-custom">Request A Quote <span class="ion-ios-arrow-forward"></span></a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="ftco-section ftco-no-pb ftco-no-pt services-section">
+        <div class="container-fluid px-md-5 py-3">
+            <div class="row py-4 d-flex">
+                <div class="col-md-3 services align-self-stretch ftco-animate">
+                    <div class="media-body">
+                        <span class="num">01</span>
+                        <h3 class="heading mb-3"><a href="#">Get Your Legal Advice</a></h3>
+                        <p>Far far away, behind the word mountains, far from the countries</p>
+                    </div>
+                </div>
+                <div class="col-md-3 services align-self-stretch ftco-animate">
+                    <div class="media-body">
+                        <span class="num">02</span>
+                        <h3 class="heading mb-3"><a href="#">Work with Expert Lawyers</a></h3>
+                        <p>Far far away, behind the word mountains, far from the countries</p>
+                    </div>
+                </div>
+                <div class="col-md-3 services align-self-stretch ftco-animate">
+                    <div class="media-body">
+                        <span class="num">03</span>
+                        <h3 class="heading mb-3"><a href="#">Have Great Discounted Rates</a></h3>
+                        <p>Far far away, behind the word mountains, far from the countries</p>
+                    </div>
+                </div>
+                <div class="col-md-3 services align-self-stretch ftco-animate">
+                    <div class="media-body">
+                        <span class="num">04</span>
+                        <h3 class="heading mb-3"><a href="#">Review Your Case Documents</a></h3>
+                        <p>Far far away, behind the word mountains, far from the countries</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ftco-section ftco-no-pt ftco-no-pb">
+        <div class="container">
+            <div class="row d-flex">
+                <div class="col-md-6 d-flex">
+                    <div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-end" style="background-image:url(./ra.web/img/img1.jpg);">
+                        <a href="./ra.web/video/video_feliz_anio.mp4" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
+                            <span class="icon-play"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 px-5 py-5">
+                    <div class="row justify-content-start pt-3 pb-3">
+                        <div class="col-md-12 heading-section ftco-animate">
+                            <span class="subheading">Bienvenidos</span>
+                            <h2 class="mb-4">We Always Fight For Your Justice to Win</h2>
+                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+                            <div class="years d-flex">
+                                <!--<h4 class="number mr-2" data-number="40">0</h4>
+                                <h4>Years of Experienced</h4>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Acerca de nosotros</h2>
+                        <p style="text-align: justify;">Somos una asociación civil sin fines de lucro, con el único fin de ayudar al pueblo que nos vio crecer.</p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="https://www.facebook.com/Reconstruyendo-Atenco-613489979001745" target="_blank"><span class="icon-facebook"></span></a></li>
+                            <!--<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                  <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                  <li class="ftco-animate"><a href="#"><span class="icon-youtube"></span></a></li>-->
+                        </ul>
+                    </div>
+                </div>
+                <!--<div class="col-md">
+              <div class="ftco-footer-widget mb-4 ml-md-5">
+                <h2 class="ftco-heading-2">Practice Areas</h2>
+                <ul class="list-unstyled">
+                  <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Family Law</a></li>
+                  <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Business Law</a></li>
+                  <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Insurance Law</a></li>
+                  <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Criminal Law</a></li>
+                  <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Drug Offenses</a></li>
+                  <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Fire Accident</a></li>
+                  <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Employment Law</a></li>
+                  <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Property Law</a></li>
+  
+                </ul>
+              </div>
+            </div>-->
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Hora de atención</h2>
+                        <div class="opening-hours">
+                            <h4>Días:</h4>
+                            <p class="pl-3">
+                                <span>Lunes – Viernes : 9am a 8pm</span><br>
+                                <span>Sabados : 9am a 12pm</span>
+                            </p>
+                            <h4>Dias no laborales:</h4>
+                            <p class="pl-3">
+                                <span>Domingos</span><br>
+                                <span>Días Festivos</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">¿Tienes preguntas?</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker" style="color:#517ec9"></span><span class="text" style="color:#517ec9">Av. Nacional Sur 122, San Salvador Atenco, Méx.</span></li>
+                                <li><span class="icon icon-phone" style="color:#517ec9"></span><span class="text" style="color:#517ec9">+52 </span></li>
+                                <li><span class="icon icon-envelope" style="color:#517ec9"></span><span class="text" style="color:#517ec9">&nbsp;atencoindependiente@gmail.com</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script type="text/javascript" src="./ra.web/js/html5up/js/jquery.min.js"></script>
+<script type="text/javascript" src="./ra.web/js/dataTables/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="./ra.web/js/dataTables/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="./ra.web/js/dataTables/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="./ra.web/js/dataTables/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="./ra.web/js/dataTables/js/buttons.bootstrap4.min.js"></script>
+<script type="text/javascript" src="./ra.web/js/dataTables/js/jszip.min.js"></script>
+<script type="text/javascript" src="./ra.web/js/redirect-v1.1.3/jquery.redirect.js"></script>
+<script type="text/javascript" src="./ra.web/js/sweetalert.min.js"></script>
+<script src="./ra.web/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="./ra.web/js/popper.min.js"></script>
+<script src="./ra.web/js/bootstrap.min.js"></script>
+<script src="./ra.web/js/jquery.easing.1.3.js"></script>
+<script src="./ra.web/js/jquery.waypoints.min.js"></script>
+<script src="./ra.web/js/jquery.stellar.min.js"></script>
+<script src="./ra.web/js/owl.carousel.min.js"></script>
+<script src="./ra.web/js/jquery.magnific-popup.min.js"></script>
+<script src="./ra.web/js/aos.js"></script>
+<script src="./ra.web/js/jquery.animateNumber.min.js"></script>
+<script src="./ra.web/js/scrollax.min.js"></script>
+<script src="./ra.web/js/main.js"></script>
+
+
+<script src="./ra.web/js/index.js"></script>
+<script src="./ra.web/js/afiliados.js"></script>
+
+</html>
+
+
+<div class="modal fade bd-nuevo-afiliado-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Datos del Afiliado</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="alert alert-warning alert-dismissable" id="alert_valida_campos">
+                            <strong>¡Atención!</strong> Es importante llenar todos los campos.
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Atenco Independiente</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="for_seccion">Localidad:</label>
+                        <select class="form-control" id="mdl_localidad" onchange="colocaCP(this.value);"> 
+                    <!--<option selected value="0000">Seleccione</option>
+                    <option value="Los Hornos (El Presidio)">Los Hornos (El Presidio)</option>
+                    <option value="Colonia el Salado">Colonia el Salado</option>
+                    <option value="La Amanal">La Amanal</option>
+                    <option value="San Salvador Atenco">San Salvador Atenco</option>
+                    <option value="San Cristóbal Nexquipayac">San Cristóbal Nexquipayac</option>
+                    <option value="Santa Isabel Ixtapan">Santa Isabel Ixtapan</option>
+                    <option value="Zapotlán">Zapotlán</option>
+                    <option value="Francisco I. Madero">Francisco I. Madero</option>
+                    <option value="Chileleco (Las Salinas)">Chileleco (Las Salinas)</option>
+                    <option value="Nueva Santa Rosa">Nueva Santa Rosa</option>
+                    <option value="Ejido de Nexquipayac">Ejido de Nexquipayac</option>
+                    <option value=" Ejido San Salvador Acuexcomac (Ejido la Purísima)"> Ejido San Salvador Acuexcomac (Ejido la Purísima)</option>
+                    <option value="La Pastoría">La Pastoría</option>
+                    <option value="San Miguel Arcángel (Tepecingo)">San Miguel Arcángel (Tepecingo)</option>
+                    <option value="Ejido San Cristóbal">Ejido San Cristóbal</option>
+                    <option value=" Hacienda la Grande Fracción Uno">Hacienda la Grande Fracción Uno</option>
+                    <option value="Santa María Hidalgo y Carrizo (Santa María Chimalhuacán)">Santa María Hidalgo y Carrizo (Santa María Chimalhuacán)</option>
+                    <option value="Plantas de Tratamiento de Agua">Plantas de Tratamiento de Agua</option>
+                    <option value="Granjas Ampliación Santa Rosa">Granjas Ampliación Santa Rosa</option>
+                    <option value="Ejido la Magdalena Panoaya">Ejido la Magdalena Panoaya</option>-->
+                    <option selected value="0000">Seleccione</option>
+                    <option value="Ejidos de Cambray">Ejidos de Cambray</option> 
+                    <option value="San Francisco Acuexcomac">San Francisco Acuexcomac</option> 
+                    <option value="San Salvador Atenco">San Salvador Atenco</option> 
+                    <option value="Santa Gertrudis">Santa Gertrudis</option> 
+                    <option value="La Noria">La Noria</option> 
+                    <option value="San Lazarito">San Lazarito</option> 
+                    <option value="Ejidal San Salvador">Ejidal San Salvadorr</option> 
+                    <option value="Hacienda la Grande Fracción Uno">Hacienda la Grande Fracción Uno</option> 
+                    <option value="Zapotlán">Zapotlán</option> 
+                    <option value="La Pastoría">La Pastoría</option> 
+                    <option value="Francisco I Madero">Francisco I Madero</option> 
+                    <option value="Ejido San Salvador Acuexcomac (Ejido la PurIsima)">Ejido San Salvador Acuexcomac (Ejido la PurIsima)</option> 
+                    <option value="El Amanal">El Amanal</option> 
+                    <option value="Ejido la Magdalena Panoaya">Ejido la Magdalena Panoaya</option> 
+                    <option value="Ejido de San Cristóbal Nexquipayac">Ejido de San Cristóbal Nexquipayac</option> 
+                    <option value="Los Hornos (El Presidio)">Los Hornos (El Presidio)</option> 
+                    <option value="Nueva Santa Rosa">Nueva Santa Rosa</option> 
+                    <option value="Nueva Santa Rosa-Granjas el Arenal">Nueva Santa Rosa-Granjas el Arenal</option> 
+                    <option value="El Salado">El Salado</option> 
+                    <option value="Santa Isabel Ixtapan">Santa Isabel Ixtapan</option> 
+                    <option value="Nezahualcoyotl - Ixtapan">Nezahualcoyotl - Ixtapan</option> 
+                    <option value="San Cristóbal Nexquipayac">San Cristóbal Nexquipayac</option> 
+                    <option value="Granjas la Purísima">Granjas la Purísima</option> 
+                    <option value="Las Salinas">Las Salinas</option> 
+                    <option value="Benito Quezada">Benito Quezada</option> 
+                    <option value="Chilileco">Chilileco</option> 
+                    <option value="La Purisima-La Purisima Norte">La Purisima-La Purisima Norte</option> 
+                  </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="for_seccion">Sección:</label>
+                        <select class="form-control" id="mdl_seccion"> 
+                    <option selected value="0000">Seleccione</option>
+                    <option value="0233">0233</option>
+                    <option value="0234">0234</option>
+                    <option value="0235">0235</option>
+                    <option value="0236">0236</option>
+                    <option value="0237">0237</option>
+                    <option value="0238">0238</option>
+                    <option value="0239">0239</option>
+                    <option value="0240">0240</option>
+                    <option value="0241">0241</option>
+                    <option value="0242">0242</option>
+                    <option value="0243">0243</option>
+                    <option value="0244">0244</option>
+                    <option value="0245">0245</option>
+                    <option value="0246">0246</option>
+                  </select>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="for_nombre">Nombre</label>
+                            <input type="text" class="form-control" id="mdl_nombre">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="for_apaterno">Apellido Paterno</label>
+                            <input type="text" class="form-control" id="mdl_apaterno">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="for_amaterno">Apellido Materno</label>
+                            <input type="text" class="form-control" id="mdl_amaterno">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="for_direccion">Dirección</label>
+                            <textarea class="form-control" id="mdl_direccion" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="for_cp">Código Postal</label>
+                            <input type="text" class="form-control" id="mdl_cp" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="for_tel_celular">Teléfono Celular</label>
+                            <input type="number" class="form-control" id="mdl_tel_celular">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="for_tel_alterno">Teléfono Alterno</label>
+                            <input type="number" class="form-control" id="mdl_tel_alterno">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="for_email">Email:</label>
+                            <input type="email" class="form-control" id="mdl_email">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="for_comnetarios">Comentarios:</label>
+                            <textarea class="form-control" id="mdl_comentarios" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btn_guardar_datos_afiliado">Guardar Datos</button>
+                <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+            </div>
+        </div>
+    </div>
+</div>
