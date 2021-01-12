@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <?php include("./includes/Head.php"); ?>
-    <link rel="stylesheet" href="./css/login.css" id="bootstrap-css">
+    <?php include("./ra.web/includes/Head.php"); ?>
+    <link rel="stylesheet" href="./ra.web/css/login.css" id="bootstrap-css">
 </head>
 <body >
     <div class="wrapper fadeInDown">
@@ -26,10 +26,10 @@
         </div>
     </div>
     <?php //include("includes/HeaderEnd.php");?>
-    <?php include("includes/HeadEnd.php");?>		
+    <?php include("./ra.web/includes/HeadEnd.php");?>		
 </body>
-    <script src="js/login.js"></script>
+    <script src="./ra.web/js/login.js"></script>
 </html>
 
-<script src="js/login.js"></script>
+<script src="./ra.web/js/login.js"></script>
 

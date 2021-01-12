@@ -1,14 +1,14 @@
-<?php include("includes/ValidaSession.php");?>
+<?php include("./ra.web/includes/ValidaSession.php");?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <?php include("./includes/Head.php"); ?>
+    <?php include("./ra.web/includes/Head.php"); ?>
 
 </head>
 
 <body>				
-  <?php include("./includes/HeadTop.php");?>
+  <?php include("./ra.web/includes/HeadTop.php");?>
     
     <div class="hero-wrap js-fullheight" style="background-image: url('img/img3.jpg');" height: 890px; data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
@@ -105,11 +105,11 @@
     	</div>
     </section>
     
-    <?php include("includes/HeaderEnd.php");?>
-    <?php include("includes/HeadEnd.php");?>	
-    <?php include("includes/ModalNuevoAfiliado.php");?>	
+    <?php include("./ra.web/includes/HeaderEnd.php");?>
+    <?php include("./ra.web/includes/HeadEnd.php");?>	
+    <?php include("./ra.web/includes/ModalNuevoAfiliado.php");?>	
 </body>
-    <script src="js/afiliados.js"></script>
+    <script src="./js/afiliados.js"></script>
 </html>
 
 

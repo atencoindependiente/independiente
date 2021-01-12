@@ -3,14 +3,14 @@
 <html lang="en">
 
 <head>
-    <?php include("./includes/Head.php"); ?>
+    <?php include("./ra.web/includes/Head.php"); ?>
 
 </head>
 
 <body>				
-  <?php include("./includes/HeadTopInvitado.php");?>
+  <?php include("./ra.web/includes/HeadTopInvitado.php");?>
     
-    <div class="hero-wrap js-fullheight" style="background-image: url('img/img3.jpg');" height: 890px; data-stellar-background-ratio="0.5">
+    <div class="hero-wrap js-fullheight" style="background-image: url('./ra.web/img/img3.jpg');" height: 890px; data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container-fluid px-md-5">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
@@ -34,7 +34,7 @@
           </div>
 					<div class="col-md-1"></div>
 					<div class="col-md-8 ftco-animate">
-						<a href="img/secciones/s_0233.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(img/secciones/s_0233.png);height: 1000px;">
+						<a href="./ra.web/img/secciones/s_0233.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(./ra.web/img/secciones/s_0233.png);height: 1000px;">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
@@ -52,7 +52,7 @@
           </div>
 					<div class="col-md-1"></div>
 					<div class="col-md-8 ftco-animate">
-						<a href="img/secciones/s_0234.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(img/secciones/s_0234.png);height: 1000px;">
+						<a href="./ra.web/img/secciones/s_0234.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(./ra.web/img/secciones/s_0234.png);height: 1000px;">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
@@ -70,7 +70,7 @@
           </div>
 					<div class="col-md-1"></div>
 					<div class="col-md-8 ftco-animate">
-						<a href="img/secciones/s_0235.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(img/secciones/s_0235.png);height: 1000px;">
+						<a href="./ra.web/img/secciones/s_0235.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(./ra.web/img/secciones/s_0235.png);height: 1000px;">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
@@ -88,7 +88,7 @@
           </div>
 					<div class="col-md-1"></div>
 					<div class="col-md-8 ftco-animate">
-						<a href="img/secciones/s_0236.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(img/secciones/s_0236.png);height: 1000px;">
+						<a href="./ra.web/img/secciones/s_0236.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(./ra.web/img/secciones/s_0236.png);height: 1000px;">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
@@ -106,7 +106,7 @@
           </div>
 					<div class="col-md-1"></div>
 					<div class="col-md-8 ftco-animate">
-						<a href="img/secciones/s_0237.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(img/secciones/s_0237.png);height: 1000px;">
+						<a href="./ra.web/img/secciones/s_0237.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(./ra.web/img/secciones/s_0237.png);height: 1000px;">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
@@ -124,7 +124,7 @@
           </div>
 					<div class="col-md-1"></div>
 					<div class="col-md-8 ftco-animate">
-						<a href="img/secciones/s_0238.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(img/secciones/s_0238.png);height: 1000px;">
+						<a href="./ra.web/img/secciones/s_0238.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(./ra.web/img/secciones/s_0238.png);height: 1000px;">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
@@ -142,7 +142,7 @@
           </div>
 					<div class="col-md-1"></div>
 					<div class="col-md-8 ftco-animate">
-						<a href="img/secciones/s_0239.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(img/secciones/s_0239.png);height: 1000px;">
+						<a href="./ra.web/img/secciones/s_0239.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(./ra.web/img/secciones/s_0239.png);height: 1000px;">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
@@ -160,7 +160,7 @@
           </div>
 					<div class="col-md-1"></div>
 					<div class="col-md-8 ftco-animate">
-						<a href="img/secciones/s_0240.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(img/secciones/s_0240.png);height: 1000px;">
+						<a href="./ra.web/img/secciones/s_0240.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(./ra.web/img/secciones/s_0240.png);height: 1000px;">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
@@ -178,7 +178,7 @@
           </div>
 					<div class="col-md-1"></div>
 					<div class="col-md-8 ftco-animate">
-						<a href="img/secciones/s_0241.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(img/secciones/s_0241.png);height: 1000px;">
+						<a href="./ra.web/img/secciones/s_0241.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(./ra.web/img/secciones/s_0241.png);height: 1000px;">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
@@ -196,7 +196,7 @@
           </div>
 					<div class="col-md-1"></div>
 					<div class="col-md-8 ftco-animate">
-						<a href="img/secciones/s_0242.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(img/secciones/s_0242.png);height: 1000px;">
+						<a href="./ra.web/img/secciones/s_0242.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(./ra.web/img/secciones/s_0242.png);height: 1000px;">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
@@ -214,7 +214,7 @@
           </div>
 					<div class="col-md-1"></div>
 					<div class="col-md-8 ftco-animate">
-						<a href="img/secciones/s_0243.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(img/secciones/s_0243.png);height: 1000px;">
+						<a href="./ra.web/img/secciones/s_0243.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(./ra.web/img/secciones/s_0243.png);height: 1000px;">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
@@ -232,7 +232,7 @@
           </div>
 					<div class="col-md-1"></div>
 					<div class="col-md-8 ftco-animate">
-						<a href="img/secciones/s_0244.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(img/secciones/s_0244.png);height: 1000px;">
+						<a href="./ra.web/img/secciones/s_0244.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(./ra.web/img/secciones/s_0244.png);height: 1000px;">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
@@ -250,7 +250,7 @@
           </div>
 					<div class="col-md-1"></div>
 					<div class="col-md-8 ftco-animate">
-						<a href="img/secciones/s_0245.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(img/secciones/s_0245.png);height: 1000px;">
+						<a href="./ra.web/img/secciones/s_0245.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(./ra.web/img/secciones/s_0245.png);height: 1000px;">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
@@ -268,7 +268,7 @@
           </div>
 					<div class="col-md-1"></div>
 					<div class="col-md-8 ftco-animate">
-						<a href="img/secciones/s_0246.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(img/secciones/s_0246.png);height: 1000px;">
+						<a href="./ra.web/img/secciones/s_0246.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url(./ra.web/img/secciones/s_0246.png);height: 1000px;">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
@@ -280,11 +280,11 @@
       </div>
     </section>
 
-    <?php include("includes/HeaderEnd.php");?>
-    <?php include("includes/HeadEnd.php");?>	
-    <?php include("includes/ModalNuevoAfiliado.php");?>	
+    <?php include("./ra.web/includes/HeaderEnd.php");?>
+    <?php include("./ra.web/includes/HeadEnd.php");?>	
+    <?php include("./ra.web/includes/ModalNuevoAfiliado.php");?>	
 </body>
-    <script src="js/afiliados.js"></script>
+    <script src="./ra.web/js/afiliados.js"></script>
 </html>
 
 
