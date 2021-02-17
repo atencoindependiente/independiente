@@ -7,12 +7,17 @@ class DatosBD {
     public $dbname;
 
     function __construct() {
-        // local
-        $this->dbserver = 'beyat6gapkrkn2zewptd-mysql.services.clever-cloud.com:3306';
-        $this->dbuser = 'uyueiovehrzqdtto';
-        $this->dbpassword = 'KLRCqk3CT1rXBUYdXjmp';
-        $this->dbname = 'beyat6gapkrkn2zewptd';
+        // server
+        //$this->dbserver = 'beyat6gapkrkn2zewptd-mysql.services.clever-cloud.com:3306';
+        //$this->dbuser = 'uyueiovehrzqdtto';
+        //$this->dbpassword = 'KLRCqk3CT1rXBUYdXjmp';
+        //$this->dbname = 'beyat6gapkrkn2zewptd';
 
+        // local
+        $this->dbserver = 'localhost:3308';
+        $this->dbuser = 'root';
+        $this->dbpassword = '';
+        $this->dbname = 'ra_independiente';
     }
 
     function connect(){ 

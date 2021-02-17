@@ -1,7 +1,7 @@
 <?php
 require_once('../ra.idao/IUsuarioDAO.php');
 require_once('../ra.model/Usuario.class.php');
-require_once("../ra.data/serverpath.php");
+//require_once("../ra.data/serverpath.php");
 require_once("../ra.data/DatosBD.php");
 
 class UsuarioDaoImpl implements IUsuarioDAO

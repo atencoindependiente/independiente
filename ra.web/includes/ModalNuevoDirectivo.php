@@ -1,8 +1,8 @@
-<div class="modal fade bd-nuevo-afiliado-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-nuevo-director-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Datos del Afiliado</h5>
+                <h5 class="modal-title">Datos del Directivo</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -10,7 +10,7 @@
             <div class="modal-body">
               <div class="row">
                 <div class="col-md-12 text-center">
-									<div class="alert alert-warning alert-dismissable" id="alert_valida_campos">
+									<div class="alert alert-warning alert-dismissable" id="alert_valida_campos_directivo">
   										<strong>¡Atención!</strong> Es importante llenar todos los campos.
 									</div>	
 								</div>
@@ -22,8 +22,8 @@
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <label for="for_seccion">Localidad:</label>
-                  <select class="form-control" id="mdl_localidad" onchange="colocaCP(this.value);"> 
+                  <label for="for_directivo_localidad">Localidad:</label>
+                  <select class="form-control" id="mdl_directivo_localidad" onchange="colocaCP(this.value,'Directivo');"> 
                     <!--<option selected value="0000">Seleccione</option>
                     <option value="Los Hornos (El Presidio)">Los Hornos (El Presidio)</option>
                     <option value="Colonia el Salado">Colonia el Salado</option>
@@ -75,9 +75,15 @@
                     <option value="La Purisima-La Purisima Norte">La Purisima-La Purisima Norte</option> 
                   </select>
                 </div>
-                <div class="col-md-4">
-                  <label for="for_seccion">Sección:</label>
-                  <select class="form-control" id="mdl_seccion"> 
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="for_directivo_cp">Código Postal</label>
+                    <input type="text" class="form-control" id="mdl_directivo_cp" disabled>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <label for="for_directivo_seccion">Sección:</label>
+                  <select class="form-control" id="mdl_directivo_seccion"> 
                     <option selected value="0000">Seleccione</option>
                     <option value="0233">0233</option>
                     <option value="0234">0234</option>
@@ -95,75 +101,62 @@
                     <option value="0246">0246</option>
                   </select>
                 </div>
-                <div class="col-md-2"></div>
               </div>
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="for_nombre">Nombre</label>
-                    <input type="text" class="form-control" id="mdl_nombre">
+                    <label for="for_directivo_nombre">Nombre</label>
+                    <input type="text" class="form-control" id="mdl_directivo_nombre">
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="for_apaterno">Apellido Paterno</label>
-                    <input type="text" class="form-control" id="mdl_apaterno">
+                    <label for="for_directivo_apaterno">Apellido Paterno</label>
+                    <input type="text" class="form-control" id="mdl_directivo_apaterno">
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="for_amaterno">Apellido Materno</label>
-                    <input type="text" class="form-control" id="mdl_amaterno">
+                    <label for="for_directivo_amaterno">Apellido Materno</label>
+                    <input type="text" class="form-control" id="mdl_directivo_amaterno">
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="for_direccion">Dirección</label>
-                    <textarea class="form-control" id="mdl_direccion" rows="3"></textarea>
+                    <label for="for_directivo_direccion">Dirección</label>
+                    <textarea class="form-control" id="mdl_directivo_direccion" rows="3"></textarea>
                   </div>
                 </div>
               </div>
               <div class="row">
+                <div class="col-md-1"></div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="for_cp">Código Postal</label>
-                    <input type="text" class="form-control" id="mdl_cp" disabled>
+                    <label for="for_directivo_tel_celular">Teléfono Celular</label>
+                    <input type="number" class="form-control" id="mdl_directivo_tel_celular">
                   </div>
                 </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label for="for_tel_celular">Teléfono Celular</label>
-                    <input type="number" class="form-control" id="mdl_tel_celular">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label for="for_tel_alterno">Teléfono Alterno</label>
-                    <input type="number" class="form-control" id="mdl_tel_alterno">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="for_email">Email:</label>
-                    <input type="email" class="form-control" id="mdl_email">
+                    <label for="for_directivo_email">Correo:</label>
+                    <input type="email" class="form-control" id="mdl_directivo_correo">
                   </div>
                 </div>
+                <div class="col-md-1"></div>
               </div>
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="for_comnetarios">Comentarios:</label>
-                    <textarea class="form-control" id="mdl_comentarios" rows="3"></textarea>
+                    <label for="for_directivo_comnetarios">Comentarios:</label>
+                    <textarea class="form-control" id="mdl_directivo_comentarios" rows="3"></textarea>
                   </div>
                 </div>
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" id="btn_guardar_datos_afiliado">Guardar Datos</button>
+              <button type="button" class="btn btn-primary" id="btn_guardar_datos_directivo">Guardar Datos</button>
               <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
             </div>
         </div>

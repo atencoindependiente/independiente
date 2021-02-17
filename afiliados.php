@@ -1,4 +1,4 @@
-<?php include("./ra.web/includes/ValidaSession.php");?>
+<?php //include("./ra.web/includes/ValidaSession.php");?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -8,9 +8,9 @@
 </head>
 
 <body>				
-  <?php include("./ra.web/includes/HeadTop.php");?>
+  <?php include("./ra.web/includes/HeadTopInvitado.php");?>
     
-    <div class="hero-wrap js-fullheight" style="background-image: url('img/img3.jpg');" height: 890px; data-stellar-background-ratio="0.5">
+    <div class="hero-wrap js-fullheight" style="background-image: url('./ra.web/img/img3.jpg');" height: 890px; data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container-fluid px-md-5">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
@@ -64,10 +64,10 @@
     			<div class="col-md-12 px-5 py-5">
     				<div class="row justify-content-start pt-3 pb-3">
 		            <div class="col-md-12 heading-section ftco-animate">
-                  <div align="right">
+                  <!--<div align="right">
                     <button type="button" class="btn btn-primary" onclick="mostrarModalAgregarAfiliado();">Agregar Afiliado</button>
                   </div>
-		          	  <!--<span class="subheading">Welcome to Judge</span>
+		          	  <span class="subheading">Welcome to Judge</span>
 		              <h2 class="mb-4">We Always Fight For Your Justice to Win</h2>
 		              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
 		              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -77,9 +77,10 @@
                 </div>
                 <br>
                 <div class="col-md-12 heading-section ftco-animate">
-                  <table class="table" id="table_nuestro_afiliados">
+                  <table class="table" id="table_nuestros_directores">
                     <thead>
                       <tr>
+                        <th scope="col">ID</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Sección</th>
                         <th scope="col">Dirección</th>
@@ -87,7 +88,7 @@
                         <th scope="col">Acción</th>
                       </tr>
                     </thead>
-                    <tbody id="tbody_afiliados">
+                    <tbody id="tbody_directores">
                       <!--<tr>
                         <th scope="row">Juan Manuel De lucio Ramirez</th>
                         <td>0236</td>
@@ -107,9 +108,8 @@
     
     <?php include("./ra.web/includes/HeaderEnd.php");?>
     <?php include("./ra.web/includes/HeadEnd.php");?>	
-    <?php include("./ra.web/includes/ModalNuevoAfiliado.php");?>	
 </body>
-    <script src="./js/afiliados.js"></script>
+    <script src="./ra.web/js/afiliados.js"></script>
 </html>
 
 

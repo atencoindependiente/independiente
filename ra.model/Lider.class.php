@@ -1,5 +1,5 @@
 <?php
-class Afiliado{
+class Lider{
     private $mdl_nombre;
     private $mdl_apaterno;
     private $mdl_amaterno;
@@ -8,14 +8,13 @@ class Afiliado{
     private $mdl_direccion;
     private $mdl_cp;
     private $mdl_tel_celular;
-    private $mdl_tel_alterno;
-    private $mdl_email;
     private $mdl_comentarios;
     private $fecha_movimiento;
     private $motivo_movimiento;
     private $usuario_movimiento;
+    private $directivo_id;
 
-    function __construct($mdl_nombre,$mdl_apaterno,$mdl_amaterno,$mdl_localidad,$mdl_seccion,$mdl_direccion,$mdl_cp,$mdl_tel_celular,$mdl_tel_alterno,$mdl_email,$mdl_comentarios,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento)
+    function __construct($mdl_nombre,$mdl_apaterno,$mdl_amaterno,$mdl_localidad,$mdl_seccion,$mdl_direccion,$mdl_cp,$mdl_tel_celular,$mdl_comentarios,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento,$directivo_id)
     {
          $this->mdl_nombre=$mdl_nombre;
          $this->mdl_apaterno=$mdl_apaterno;
@@ -25,12 +24,11 @@ class Afiliado{
          $this->mdl_direccion=$mdl_direccion;
          $this->mdl_cp=$mdl_cp;
          $this->mdl_tel_celular=$mdl_tel_celular;
-         $this->mdl_tel_alterno=$mdl_tel_alterno;
-         $this->mdl_email=$mdl_email;
          $this->mdl_comentarios=$mdl_comentarios;
          $this->fecha_movimiento=$fecha_movimiento;
          $this->motivo_movimiento=$motivo_movimiento;
          $this->usuario_movimiento=$usuario_movimiento;
+         $this->directivo_id=$directivo_id;
     }
     public function getNombre(){
 		return $this->mdl_nombre;
@@ -56,12 +54,6 @@ class Afiliado{
     public function getTelefonoCelular(){
 		return $this->mdl_tel_celular;
     }
-    public function getTelefonoAlterno(){
-		return $this->mdl_tel_alterno;
-    }
-    public function getEmail(){
-		return $this->mdl_email;
-    }
     public function getComentario(){
 		return $this->mdl_comentarios;
     }
@@ -73,6 +65,9 @@ class Afiliado{
     }
     public function getUsuarioMovimiento(){
 		return $this->usuario_movimiento;
+    }
+    public function getDirectivoId(){
+      return $this->directivo_id;
     }
 
     public function setNombre($mdl_nombre){
@@ -99,12 +94,6 @@ class Afiliado{
     public function setTelefonoCelular($mdl_tel_celular){
 		$this->mdl_tel_celular = $mdl_tel_celular;
     }
-    public function setTelefonoAlterno($mdl_tel_alterno){
-		$this->mdl_tel_alterno = $mdl_tel_alterno;
-    }
-    public function setEmail($mdl_email){
-		$this->mdl_email = $mdl_email;
-    }
     public function setComentario($mdl_comentarios){
 		$this->mdl_comentarios = $mdl_comentarios;
     }
@@ -116,6 +105,9 @@ class Afiliado{
     }
     public function setUsuarioMovimiento($usuario_movimiento){
 		$this->usuario_movimiento = $usuario_movimiento;
+    }
+    public function setDirectivoId($directivo_id){
+      $this->directivo_id= $directivo_id;
     }
     
 }

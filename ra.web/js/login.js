@@ -37,7 +37,7 @@ function validarLogin(usuario, contrasena) {
     $.ajax({
         method: "POST",
         dataType: 'json',
-        url: "../ra.view/ValidarLogin.php",
+        url: "./ra.view/ValidarLogin.php",
         data: { usuario: usuario, contrasena: contrasena, }
     }).done(function(result) {
         //var obj=$.parseJSON(result);

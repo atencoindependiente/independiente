@@ -1,5 +1,5 @@
 <?php 
-error_reporting(5);
+//error_reporting(5);
 require_once('../ra.model/Usuario.class.php');
 require_once('../ra.controller/ControllerUsuario.php');
  

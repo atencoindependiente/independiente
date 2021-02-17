@@ -1,16 +1,51 @@
 $(document).ready(function() {
     mostrarTablaAfiliados();
-    $('#alert_valida_campos').hide();
 
-
-    $('#btn_guardar_datos_afiliado').click(function() {
+    $('#btn_guardar_datos_directivo').click(function() {
         validaCampos();
     });
 });
 
-function mostrarModalAgregarAfiliado() {
+//function mostrarModalAgregarAfiliado() {
+//    vaciaCampos();
+//    $(".bd-nuevo-afiliado-modal-lg").modal('show');
+//}
+
+function mostrarModalAgregarDirectivo() {
+    console.log("mostrarModalAgregarDirectivo");
+    $('#alert_valida_campos_directivo').hide();
+    vaciaCampos('Directivo');
+    $(".bd-nuevo-director-modal-lg").modal('show');
+    $(".bd-nuevo-lider-modal-lg").modal('hide');
+    $(".bd-nuevo-coordinador-modal-lg").modal('hide');
+    $(".bd-nuevo-simpatizante-modal-lg").modal('hide');
+}
+
+function mostrarModalAgregarLider() {
+    console.log("mostrarModalAgregarLider");
     vaciaCampos();
-    $(".bd-nuevo-afiliado-modal-lg").modal('show');
+    $(".bd-nuevo-director-modal-lg").modal('hide');
+    $(".bd-nuevo-lider-modal-lg").modal('show');
+    $(".bd-nuevo-coordinador-modal-lg").modal('hide');
+    $(".bd-nuevo-simpatizante-modal-lg").modal('hide');
+}
+
+function mostrarModalAgregarCoordinador() {
+    console.log("mostrarModalAgregarCoordinador");
+    vaciaCampos();
+    $(".bd-nuevo-director-modal-lg").modal('hide');
+    $(".bd-nuevo-lider-modal-lg").modal('hide');
+    $(".bd-nuevo-coordinador-modal-lg").modal('show');
+    $(".bd-nuevo-simpatizante-modal-lg").modal('hide');
+}
+
+function mostrarModalAgregarSimpatizante() {
+    console.log("mostrarModalAgregarSimpatizante");
+    vaciaCampos();
+    $(".bd-nuevo-director-modal-lg").modal('hide');
+    $(".bd-nuevo-lider-modal-lg").modal('hide');
+    $(".bd-nuevo-coordinador-modal-lg").modal('hide');
+    $(".bd-nuevo-simpatizante-modal-lg").modal('show');
 }
 
 function validaCampos() {
@@ -68,186 +103,620 @@ function validaCampos() {
     console.log(10);*/
 
     console.log("btn_guardar_datos_afiliado");
-    let mdl_localidad = $("#mdl_localidad").val();
-    let mdl_seccion = $("#mdl_seccion").val();
-    let mdl_nombre = $("#mdl_nombre").val();
-    let mdl_apaterno = $("#mdl_apaterno").val();
-    let mdl_amaterno = $("#mdl_amaterno").val();
-    let mdl_direccion = $("#mdl_direccion").val();
-    let mdl_cp = $("#mdl_cp").val();
-    let mdl_tel_celular = $("#mdl_tel_celular").val();
+    let mdl_localidad = $("#mdl_directivo_localidad").val();
+    let mdl_seccion = $("#mdl_directivo_seccion").val();
+    let mdl_cp = $("#mdl_directivo_cp").val();
+    let mdl_nombre = $("#mdl_directivo_nombre").val();
+    let mdl_apaterno = $("#mdl_directivo_apaterno").val();
+    let mdl_amaterno = $("#mdl_directivo_amaterno").val();
+    let mdl_direccion = $("#mdl_directivo_direccion").val();
+    let mdl_tel_celular = $("#mdl_directivo_tel_celular").val();
 
-    let mdl_tel_alterno_old = $("#mdl_tel_alterno").val();
-    let mdl_tel_alterno = mdl_tel_alterno_old.length == 0 ? '0000000000' : mdl_tel_alterno_old;
-    let mdl_email_old = $("#mdl_email").val();
+    let mdl_email_old = $("#mdl_directivo_correo").val();
     let mdl_email = mdl_email_old.length == 0 ? 'Sin Email' : mdl_email_old;
-    let mdl_comentarios_old = $("#mdl_comentarios").val();
+    let mdl_comentarios_old = $("#mdl_directivo_comentarios").val();
     let mdl_comentarios = mdl_comentarios_old.length == 0 ? 'Sin Comentarios' : mdl_comentarios_old;
     if (mdl_localidad === '0000' || mdl_seccion === '0000' || mdl_nombre.length == 0 || mdl_apaterno.length == 0 ||
         mdl_amaterno.length == 0 || mdl_direccion.length == 0 || mdl_cp.length == 0 || mdl_tel_celular.length == 0) {
         swal("¡IMPORTANTE!", "Es necesario llenar todos los campos del formulario.", "warning");
     } else {
-        guardarDatos(mdl_localidad, mdl_seccion, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_cp, mdl_tel_celular, mdl_tel_alterno, mdl_email, mdl_comentarios);
+        console.log(mdl_localidad);
+        console.log(mdl_seccion);
+        console.log(mdl_nombre);
+        console.log(mdl_apaterno);
+        console.log(mdl_amaterno);
+        console.log(mdl_direccion);
+        console.log(mdl_cp);
+        console.log(mdl_tel_celular);
+        console.log(mdl_email);
+        console.log(mdl_comentarios);
+        guardarDatos(mdl_localidad, mdl_seccion, mdl_cp, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_tel_celular, mdl_email, mdl_comentarios);
     }
-
-    //console.log(mdl_localidad);
-    //console.log(mdl_seccion);
-    //console.log(mdl_nombre);
-    //console.log(mdl_apaterno);
-    //console.log(mdl_amaterno);
-    //console.log(mdl_direccion);
-    //console.log(mdl_cp);
-    //console.log(mdl_tel_celular);
-    //console.log(mdl_tel_alterno);
-    //console.log(mdl_email);
-    //console.log(mdl_comentarios);
 }
 
-function colocaCP(localidad) {
-    switch (localidad) {
-        case "Ejidos de Cambray":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56300');
+function colocaCP(localidad, tipo_modal) {
+    console.log(tipo_modal);
+    switch (tipo_modal) {
+        case 'Directivo':
+            switch (localidad) {
+                case "Ejidos de Cambray":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56300');
+                    break;
+                case "San Francisco Acuexcomac":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56300');
+                    break;
+                case "San Salvador Atenco":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56300');
+                    break;
+                case "Santa Gertrudis":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56300');
+                    break;
+                case "La Noria":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56303');
+                    break;
+                case "San Lazarito":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56303');
+                    break;
+                case "Ejidal San Salvador":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56303');
+                    break;
+                case "Hacienda la Grande Fracción Uno":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56303');
+                    break;
+                case "Zapotlán":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56304');
+                    break;
+                case "La Pastoría":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56304');
+                    break;
+                case "Francisco I Madero":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56305');
+                    break;
+                case "Ejido San Salvador Acuexcomac (Ejido la PurIsima)":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56305');
+                    break;
+                case "El Amanal":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56305');
+                    break;
+                case "Ejido la Magdalena Panoaya":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56305');
+                    break;
+                case "Ejido de San Cristóbal Nexquipayac":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56306');
+                    break;
+                case "Los Hornos (El Presidio)":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56306');
+                    break;
+                case "Nueva Santa Rosa":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56310');
+                    break;
+                case "Nueva Santa Rosa-Granjas el Arenal":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56310');
+                    break;
+                case "El Salado":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56310');
+                    break;
+                case "Santa Isabel Ixtapan":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56314');
+                    break;
+                case "Nezahualcoyotl - Ixtapan":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56314');
+                    break;
+                case "San Cristóbal Nexquipayac":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56315');
+                    break;
+                case "Granjas la Purísima":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56315');
+                    break;
+                case "Las Salinas":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56315');
+                    break;
+                case "Benito Quezada":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56315');
+                    break;
+                case "Chilileco":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56315');
+                    break;
+                case "La Purisima-La Purisima Norte":
+                    console.log(localidad);
+                    $("#mdl_directivo_cp").val("");
+                    $("#mdl_directivo_cp").val('56315');
+                    break;
+                default:
+                    console.log("Sin de localidad");
+                    $("#mdl_directivo_cp").val("");
+                    break;
+            }
             break;
-        case "San Francisco Acuexcomac":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56300');
+        case 'Lider':
+            switch (localidad) {
+                case "Ejidos de Cambray":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56300');
+                    break;
+                case "San Francisco Acuexcomac":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56300');
+                    break;
+                case "San Salvador Atenco":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56300');
+                    break;
+                case "Santa Gertrudis":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56300');
+                    break;
+                case "La Noria":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56303');
+                    break;
+                case "San Lazarito":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56303');
+                    break;
+                case "Ejidal San Salvador":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56303');
+                    break;
+                case "Hacienda la Grande Fracción Uno":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56303');
+                    break;
+                case "Zapotlán":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56304');
+                    break;
+                case "La Pastoría":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56304');
+                    break;
+                case "Francisco I Madero":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56305');
+                    break;
+                case "Ejido San Salvador Acuexcomac (Ejido la PurIsima)":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56305');
+                    break;
+                case "El Amanal":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56305');
+                    break;
+                case "Ejido la Magdalena Panoaya":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56305');
+                    break;
+                case "Ejido de San Cristóbal Nexquipayac":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56306');
+                    break;
+                case "Los Hornos (El Presidio)":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56306');
+                    break;
+                case "Nueva Santa Rosa":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56310');
+                    break;
+                case "Nueva Santa Rosa-Granjas el Arenal":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56310');
+                    break;
+                case "El Salado":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56310');
+                    break;
+                case "Santa Isabel Ixtapan":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56314');
+                    break;
+                case "Nezahualcoyotl - Ixtapan":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56314');
+                    break;
+                case "San Cristóbal Nexquipayac":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56315');
+                    break;
+                case "Granjas la Purísima":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56315');
+                    break;
+                case "Las Salinas":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56315');
+                    break;
+                case "Benito Quezada":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56315');
+                    break;
+                case "Chilileco":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56315');
+                    break;
+                case "La Purisima-La Purisima Norte":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56315');
+                    break;
+                default:
+                    console.log("Sin de localidad");
+                    $("#mdl_cp").val("");
+                    break;
+            }
             break;
-        case "San Salvador Atenco":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56300');
+        case 'Coordinador':
+            switch (localidad) {
+                case "Ejidos de Cambray":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56300');
+                    break;
+                case "San Francisco Acuexcomac":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56300');
+                    break;
+                case "San Salvador Atenco":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56300');
+                    break;
+                case "Santa Gertrudis":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56300');
+                    break;
+                case "La Noria":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56303');
+                    break;
+                case "San Lazarito":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56303');
+                    break;
+                case "Ejidal San Salvador":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56303');
+                    break;
+                case "Hacienda la Grande Fracción Uno":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56303');
+                    break;
+                case "Zapotlán":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56304');
+                    break;
+                case "La Pastoría":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56304');
+                    break;
+                case "Francisco I Madero":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56305');
+                    break;
+                case "Ejido San Salvador Acuexcomac (Ejido la PurIsima)":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56305');
+                    break;
+                case "El Amanal":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56305');
+                    break;
+                case "Ejido la Magdalena Panoaya":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56305');
+                    break;
+                case "Ejido de San Cristóbal Nexquipayac":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56306');
+                    break;
+                case "Los Hornos (El Presidio)":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56306');
+                    break;
+                case "Nueva Santa Rosa":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56310');
+                    break;
+                case "Nueva Santa Rosa-Granjas el Arenal":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56310');
+                    break;
+                case "El Salado":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56310');
+                    break;
+                case "Santa Isabel Ixtapan":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56314');
+                    break;
+                case "Nezahualcoyotl - Ixtapan":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56314');
+                    break;
+                case "San Cristóbal Nexquipayac":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56315');
+                    break;
+                case "Granjas la Purísima":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56315');
+                    break;
+                case "Las Salinas":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56315');
+                    break;
+                case "Benito Quezada":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56315');
+                    break;
+                case "Chilileco":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56315');
+                    break;
+                case "La Purisima-La Purisima Norte":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56315');
+                    break;
+                default:
+                    console.log("Sin de localidad");
+                    $("#mdl_cp").val("");
+                    break;
+            }
             break;
-        case "Santa Gertrudis":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56300');
-            break;
-        case "La Noria":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56303');
-            break;
-        case "San Lazarito":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56303');
-            break;
-        case "Ejidal San Salvador":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56303');
-            break;
-        case "Hacienda la Grande Fracción Uno":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56303');
-            break;
-        case "Zapotlán":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56304');
-            break;
-        case "La Pastoría":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56304');
-            break;
-        case "Francisco I Madero":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56305');
-            break;
-        case "Ejido San Salvador Acuexcomac (Ejido la PurIsima)":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56305');
-            break;
-        case "El Amanal":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56305');
-            break;
-        case "Ejido la Magdalena Panoaya":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56305');
-            break;
-        case "Ejido de San Cristóbal Nexquipayac":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56306');
-            break;
-        case "Los Hornos (El Presidio)":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56306');
-            break;
-        case "Nueva Santa Rosa":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56310');
-            break;
-        case "Nueva Santa Rosa-Granjas el Arenal":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56310');
-            break;
-        case "El Salado":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56310');
-            break;
-        case "Santa Isabel Ixtapan":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56314');
-            break;
-        case "Nezahualcoyotl - Ixtapan":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56314');
-            break;
-        case "San Cristóbal Nexquipayac":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56315');
-            break;
-        case "Granjas la Purísima":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56315');
-            break;
-        case "Las Salinas":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56315');
-            break;
-        case "Benito Quezada":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56315');
-            break;
-        case "Chilileco":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56315');
-            break;
-        case "La Purisima-La Purisima Norte":
-            console.log(localidad);
-            $("#mdl_cp").val("");
-            $("#mdl_cp").val('56315');
+        case 'Simpatizante':
+            switch (localidad) {
+                case "Ejidos de Cambray":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56300');
+                    break;
+                case "San Francisco Acuexcomac":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56300');
+                    break;
+                case "San Salvador Atenco":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56300');
+                    break;
+                case "Santa Gertrudis":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56300');
+                    break;
+                case "La Noria":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56303');
+                    break;
+                case "San Lazarito":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56303');
+                    break;
+                case "Ejidal San Salvador":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56303');
+                    break;
+                case "Hacienda la Grande Fracción Uno":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56303');
+                    break;
+                case "Zapotlán":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56304');
+                    break;
+                case "La Pastoría":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56304');
+                    break;
+                case "Francisco I Madero":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56305');
+                    break;
+                case "Ejido San Salvador Acuexcomac (Ejido la PurIsima)":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56305');
+                    break;
+                case "El Amanal":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56305');
+                    break;
+                case "Ejido la Magdalena Panoaya":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56305');
+                    break;
+                case "Ejido de San Cristóbal Nexquipayac":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56306');
+                    break;
+                case "Los Hornos (El Presidio)":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56306');
+                    break;
+                case "Nueva Santa Rosa":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56310');
+                    break;
+                case "Nueva Santa Rosa-Granjas el Arenal":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56310');
+                    break;
+                case "El Salado":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56310');
+                    break;
+                case "Santa Isabel Ixtapan":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56314');
+                    break;
+                case "Nezahualcoyotl - Ixtapan":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56314');
+                    break;
+                case "San Cristóbal Nexquipayac":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56315');
+                    break;
+                case "Granjas la Purísima":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56315');
+                    break;
+                case "Las Salinas":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56315');
+                    break;
+                case "Benito Quezada":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56315');
+                    break;
+                case "Chilileco":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56315');
+                    break;
+                case "La Purisima-La Purisima Norte":
+                    console.log(localidad);
+                    $("#mdl_cp").val("");
+                    $("#mdl_cp").val('56315');
+                    break;
+                default:
+                    console.log("Sin de localidad");
+                    $("#mdl_cp").val("");
+                    break;
+            }
             break;
         default:
-            console.log("Sin de localidad");
-            $("#mdl_cp").val("");
             break;
     }
+
+
 }
 
-function guardarDatos(mdl_localidad, mdl_seccion, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_cp, mdl_tel_celular, mdl_tel_alterno, mdl_email, mdl_comentarios) {
+function guardarDatos(mdl_localidad, mdl_seccion, mdl_cp, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_tel_celular, mdl_email, mdl_comentarios) {
     $.ajax({
         url: './ra.view/RegistrarNuevoAfiliadoView.php',
         dataType: 'json',
@@ -255,13 +724,12 @@ function guardarDatos(mdl_localidad, mdl_seccion, mdl_nombre, mdl_apaterno, mdl_
         data: {
             mdl_localidad: mdl_localidad,
             mdl_seccion: mdl_seccion,
+            mdl_cp: mdl_cp,
             mdl_nombre: mdl_nombre,
             mdl_apaterno: mdl_apaterno,
             mdl_amaterno: mdl_amaterno,
             mdl_direccion: mdl_direccion,
-            mdl_cp: mdl_cp,
             mdl_tel_celular: mdl_tel_celular,
-            mdl_tel_alterno: mdl_tel_alterno,
             mdl_email: mdl_email,
             mdl_comentarios: mdl_comentarios
         },
@@ -286,9 +754,9 @@ function guardarDatos(mdl_localidad, mdl_seccion, mdl_nombre, mdl_apaterno, mdl_
 }
 
 function mostrarTablaAfiliados() {
-    let table = $('#table_nuestro_afiliados').DataTable();
+    let table = $('#table_nuestros_directores').DataTable();
     table.destroy();
-    $('#table_nuestro_afiliados').DataTable({
+    $('#table_nuestros_directores').DataTable({
         "responsive": true,
         "paging": true,
         "info": true,
@@ -317,13 +785,14 @@ function mostrarTablaAfiliados() {
                 'sSortDescending': ': Activar para ordenar la columna de manera descendente'
             }
         },
-        "ajax": "../ra.view/MostrarAfiliados.php",
+        "ajax": "./ra.view/MostrarDirectores.php",
         "columns": [
-            { "data": "afil_nombre_completo" },
-            { "data": "afil_seccion" },
-            { "data": "afil_direccion" },
-            { "data": "afil_tel_celular" },
-            { "data": "afil_accion" }
+            { "data": "dire_id" },
+            { "data": "dire_nombre_completo" },
+            { "data": "dire_seccion" },
+            { "data": "dire_direccion" },
+            { "data": "dire_tel_celular" },
+            { "data": "dire_accion" }
         ],
         "order": [
             [0, 'asc']
@@ -331,16 +800,22 @@ function mostrarTablaAfiliados() {
     });
 }
 
-function vaciaCampos() {
-    $("#mdl_localidad").val('0000');
-    $("#mdl_seccion").val('0000');
-    $("#mdl_nombre").val('');
-    $("#mdl_apaterno").val('');
-    $("#mdl_amaterno").val('');
-    $("#mdl_direccion").val('');
-    $("#mdl_cp").val('');
-    $("#mdl_tel_celular").val('');
-    $("#mdl_tel_alterno").val('');
-    $("#mdl_email").val('');
-    $("#mdl_comentarios").val('');
+function vaciaCampos(tipo) {
+    switch (tipo) {
+        case 'Directivo':
+            $("#mdl_directivo_localidad").val('0000');
+            $("#mdl_directivo_seccion").val('0000');
+            $("#mdl_directivo_nombre").val('');
+            $("#mdl_directivo_apaterno").val('');
+            $("#mdl_directivo_amaterno").val('');
+            $("#mdl_directivo_direccion").val('');
+            $("#mdl_directivo_cp").val('');
+            $("#mdl_directivo_tel_celular").val('');
+            $("#mdl_directivo_tel_alterno").val('');
+            $("#mdl_directivo_email").val('');
+            $("#mdl_directivo_comentarios").val('');
+            break;
+        default:
+            break;
+    }
 }

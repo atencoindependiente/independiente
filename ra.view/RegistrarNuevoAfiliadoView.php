@@ -1,8 +1,8 @@
 <?php
 //error_reporting(5);
 //session_start();
-require_once('../ra.model/Afiliado.class.php');
-require_once('../ra.controller/ControllerAfiliado.php');
+require_once('../ra.model/Directivo.class.php');
+require_once('../ra.controller/ControllerDirectivo.php');
 date_default_timezone_set("America/Mexico_City");
 
 $mdl_nombre = $_POST["mdl_nombre"];
@@ -13,15 +13,14 @@ $mdl_seccion = $_POST["mdl_seccion"];
 $mdl_direccion = $_POST["mdl_direccion"];
 $mdl_cp = $_POST["mdl_cp"];
 $mdl_tel_celular = $_POST["mdl_tel_celular"];
-$mdl_tel_alterno = $_POST["mdl_tel_alterno"];
 $mdl_email = $_POST["mdl_email"];
 $mdl_comentarios = $_POST["mdl_comentarios"];
 $fecha_movimiento = date("Y-m-d H:i:s");
-$motivo_movimiento="Se agrega nuevo afiliado.";
+$motivo_movimiento="Se agrega nuevo directivo.";
 //$usuario_movimiento = $_SESSION["usuario_id"];
 $usuario_movimiento = 1;
 
-$afiliado= new Afiliado(
+$directivo= new Directivo(
     $mdl_nombre,
     $mdl_apaterno,
     $mdl_amaterno,
@@ -30,7 +29,6 @@ $afiliado= new Afiliado(
     $mdl_direccion,
     $mdl_cp,
     $mdl_tel_celular,
-    $mdl_tel_alterno,
     $mdl_email,
     $mdl_comentarios,
     $fecha_movimiento,
@@ -38,7 +36,7 @@ $afiliado= new Afiliado(
     $usuario_movimiento
 );
 
-$controller=new ControllerAfiliado();
-$controller->registrarAfiliado($afiliado);
+$controller=new ControllerDirectivo();
+$controller->registrarDirectivo($directivo);
 
 ?>

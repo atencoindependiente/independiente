@@ -11,7 +11,7 @@
           <!-- Tabs Titles -->
           <!-- Icon -->
           <div class="fadeIn first">
-            <img src="img/user.jpg" id="icon" alt="User Icon" style="border-radius: 10px;"/>
+            <img src="./ra.web/img/user.jpg" id="icon" alt="User Icon" style="border-radius: 10px;"/>
           </div>
           <!-- Login Form -->
           <form>

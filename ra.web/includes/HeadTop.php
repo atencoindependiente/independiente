@@ -28,7 +28,7 @@
                           <small><?php echo $_SESSION['usuario_nombre'];?></small>
                         </h5>
                       </button>
-                      <a class="dropdown-item" href="./includes/logout.php"><i class="fa fa-power-off" aria-hidden="true"></i>&nbsp;&nbsp;Salir</a>
+                      <a class="dropdown-item" href="./ra.web/includes/logout.php"><i class="fa fa-power-off" aria-hidden="true"></i>&nbsp;&nbsp;Salir</a>
                     </div>
                   </div>
                 </li>

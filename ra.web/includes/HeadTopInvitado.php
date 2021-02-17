@@ -10,7 +10,21 @@
         <li class="nav-item active"><a href="index.php" class="nav-link">Inicio</a></li>
         <li class="nav-item"><a href="nosotros.php" class="nav-link">Nosotros</a></li>
         <li class="nav-item"><a href="secciones.php" class="nav-link">Secciones</a></li>
-        <li class="nav-item"><a href="#" class="nav-link"  onclick="mostrarModalAgregarAfiliado();">Afiliate</a></li>
+        <li class="nav-item"><a href="afiliados.php" class="nav-link">Afiliados</a></li>
+        <!--<li class="nav-item"><a href="#" class="nav-link"  onclick="mostrarModalAgregarAfiliado();">Afiliate</a></li>-->
+        <li class="nav-item" style="padding-top: 10px;">
+          <div class="btn-group">
+            <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" style="color:#ffffff;">
+            Registro
+            </button>
+            <div class="dropdown-menu dropdown-menu-lg-right">
+              <a class="dropdown-item" href="#" onclick="mostrarModalAgregarDirectivo();">Directivo</a>
+              <a class="dropdown-item" href="#" onclick="mostrarModalAgregarLider();">Lider</a>
+              <a class="dropdown-item" href="#" onclick="mostrarModalAgregarCoordinador();">Coordinador</a>
+              <a class="dropdown-item" href="#" onclick="mostrarModalAgregarSimpatizante();">Simpatizante</a>
+            </div>
+          </div>
+        </li>
         <!--<li class="nav-item"><a href="./login.php" class="nav-link">Inicio de Sesión</a></li>-->
         </ul>
     </div>
