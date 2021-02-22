@@ -108,6 +108,10 @@
     
     <?php include("./ra.web/includes/HeaderEnd.php");?>
     <?php include("./ra.web/includes/HeadEnd.php");?>	
+    <?php include("./ra.web/includes/ModalNuevoDirectivo.php");?>
+    <?php include("./ra.web/includes/ModalNuevoLider.php");?>
+    <?php include("./ra.web/includes/ModalNuevoCoordinador.php");?>
+    <?php include("./ra.web/includes/ModalNuevoSimpatizante.php");?>
 </body>
     <script src="./ra.web/js/afiliados.js"></script>
 </html>

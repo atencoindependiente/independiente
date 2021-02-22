@@ -10,7 +10,7 @@
             <div class="modal-body">
               <div class="row">
                 <div class="col-md-12 text-center">
-									<div class="alert alert-warning alert-dismissable" id="alert_valida_campos">
+									<div class="alert alert-warning alert-dismissable" id="alert_valida_campos_lider">
   										<strong>¡Atención!</strong> Es importante llenar todos los campos.
 									</div>	
 								</div>
@@ -23,28 +23,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <label for="for_seccion">Localidad:</label>
-                  <select class="form-control" id="mdl_localidad" onchange="colocaCP(this.value);"> 
-                    <!--<option selected value="0000">Seleccione</option>
-                    <option value="Los Hornos (El Presidio)">Los Hornos (El Presidio)</option>
-                    <option value="Colonia el Salado">Colonia el Salado</option>
-                    <option value="La Amanal">La Amanal</option>
-                    <option value="San Salvador Atenco">San Salvador Atenco</option>
-                    <option value="San Cristóbal Nexquipayac">San Cristóbal Nexquipayac</option>
-                    <option value="Santa Isabel Ixtapan">Santa Isabel Ixtapan</option>
-                    <option value="Zapotlán">Zapotlán</option>
-                    <option value="Francisco I. Madero">Francisco I. Madero</option>
-                    <option value="Chileleco (Las Salinas)">Chileleco (Las Salinas)</option>
-                    <option value="Nueva Santa Rosa">Nueva Santa Rosa</option>
-                    <option value="Ejido de Nexquipayac">Ejido de Nexquipayac</option>
-                    <option value=" Ejido San Salvador Acuexcomac (Ejido la Purísima)"> Ejido San Salvador Acuexcomac (Ejido la Purísima)</option>
-                    <option value="La Pastoría">La Pastoría</option>
-                    <option value="San Miguel Arcángel (Tepecingo)">San Miguel Arcángel (Tepecingo)</option>
-                    <option value="Ejido San Cristóbal">Ejido San Cristóbal</option>
-                    <option value=" Hacienda la Grande Fracción Uno">Hacienda la Grande Fracción Uno</option>
-                    <option value="Santa María Hidalgo y Carrizo (Santa María Chimalhuacán)">Santa María Hidalgo y Carrizo (Santa María Chimalhuacán)</option>
-                    <option value="Plantas de Tratamiento de Agua">Plantas de Tratamiento de Agua</option>
-                    <option value="Granjas Ampliación Santa Rosa">Granjas Ampliación Santa Rosa</option>
-                    <option value="Ejido la Magdalena Panoaya">Ejido la Magdalena Panoaya</option>-->
+                  <select class="form-control" id="mdl_lider_localidad" onchange="colocaCP(this.value,'Lider');"> 
                     <option selected value="0000">Seleccione</option>
                     <option value="Ejidos de Cambray">Ejidos de Cambray</option> 
                     <option value="San Francisco Acuexcomac">San Francisco Acuexcomac</option> 
@@ -75,9 +54,15 @@
                     <option value="La Purisima-La Purisima Norte">La Purisima-La Purisima Norte</option> 
                   </select>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="for_cp">Código Postal</label>
+                    <input type="text" class="form-control" id="mdl_lider_cp" disabled>
+                  </div>
+                </div>
+                <div class="col-md-3">
                   <label for="for_seccion">Sección:</label>
-                  <select class="form-control" id="mdl_seccion"> 
+                  <select class="form-control" id="mdl_lider_seccion"> 
                     <option selected value="0000">Seleccione</option>
                     <option value="0233">0233</option>
                     <option value="0234">0234</option>
@@ -97,44 +82,34 @@
                 </div>
                 <div class="col-md-2"></div>
               </div>
+              <br>
               <div class="row">
-                <div class="col-md-12" align="center">Datos del Auxiliar:</div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label for="for_nombre">Nombre</label>
-                    <input type="text" class="form-control" id="mdl_nombre_auxiliar">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label for="for_nombre">Apellido Paterno:</label>
-                    <input type="text" class="form-control" id="mdl_apaterno_auxiliar">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label for="for_nombre">Apellido Materno:</label>
-                    <input type="text" class="form-control" id="mdl_amaterno_auxiliar">
-                  </div>
+                <div class="col-md-3" align="center">Datos del Directivo:</div>
+                <div class="col-md-9">
+                  <select class="form-control" id="mdl_datos_directivo"> 
+                    <!--<option selected value="0">Seleccione</option>-->
+                  </select>
                 </div>
               </div>
+              <br>
               <div class="row">
+                <div class="col-md-12" align="center">Datos del Lider:</div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="for_nombre">Nombre</label>
-                    <input type="text" class="form-control" id="mdl_nombre">
+                    <input type="text" class="form-control" id="mdl_lider_nombre">
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="for_apaterno">Apellido Paterno</label>
-                    <input type="text" class="form-control" id="mdl_apaterno">
+                    <input type="text" class="form-control" id="mdl_lider_apaterno">
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="for_amaterno">Apellido Materno</label>
-                    <input type="text" class="form-control" id="mdl_amaterno">
+                    <input type="text" class="form-control" id="mdl_lider_amaterno">
                   </div>
                 </div>
               </div>
@@ -142,35 +117,15 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="for_direccion">Dirección</label>
-                    <textarea class="form-control" id="mdl_direccion" rows="3"></textarea>
+                    <textarea class="form-control" id="mdl_lider_direccion" rows="3"></textarea>
                   </div>
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label for="for_cp">Código Postal</label>
-                    <input type="text" class="form-control" id="mdl_cp" disabled>
-                  </div>
-                </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="for_tel_celular">Teléfono Celular</label>
-                    <input type="number" class="form-control" id="mdl_tel_celular">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label for="for_tel_alterno">Teléfono Alterno</label>
-                    <input type="number" class="form-control" id="mdl_tel_alterno">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="for_email">Email:</label>
-                    <input type="email" class="form-control" id="mdl_email">
+                    <input type="number" class="form-control" id="mdl_lider_tel_celular">
                   </div>
                 </div>
               </div>
@@ -178,13 +133,13 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="for_comnetarios">Comentarios:</label>
-                    <textarea class="form-control" id="mdl_comentarios" rows="3"></textarea>
+                    <textarea class="form-control" id="mdl_lider_comentarios" rows="3"></textarea>
                   </div>
                 </div>
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" id="btn_guardar_datos_afiliado">Guardar Datos</button>
+              <button type="button" class="btn btn-primary" id="btn_guardar_datos_lider">Guardar Datos</button>
               <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
             </div>
         </div>

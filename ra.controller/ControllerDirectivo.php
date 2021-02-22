@@ -12,5 +12,10 @@ class ControllerDirectivo {
         $dao = new DirectivoDaoImpl();
         $dao->registrarDirectivo($directivo);
     }
+
+    function mostrarNombreDirectivos(){
+        $dao = new DirectivoDaoImpl();
+        $dao->mostrarNombreDirectivos();
+    }
 }
 ?>

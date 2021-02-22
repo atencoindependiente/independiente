@@ -66,6 +66,37 @@ require_once("../ra.data/DatosBD.php");
         echo json_encode($arrayResult);
         $connect->close();
     }
+
+    function mostrarNombreDirectivos(){
+      $datosDB = new DatosBD();
+      $connect = $datosDB->connect();
+      $query = "SELECT * FROM view_directores_nombre_completo";
+      $directivo = array();
+      
+      $result = mysqli_query($connect, $query);
+      if($result){
+        if (mysqli_num_rows($result) > 0)
+        {
+          while (($fila = mysqli_fetch_array($result)) != NULL) 
+          {   
+            $dire_id=$fila['dire_id'];
+            $dire_nombre_completo = $fila['dire_nombre_completo'];
+
+            $directivo[] = array(
+              "dire_id" => $dire_id,
+              "dire_nombre_completo" => $dire_nombre_completo
+            );
+          }
+          $resultJson = array('success'=>true, 'result'=>$directivo);
+        }else {
+          $resultJson = array('success'=>false, 'result'=>'0');
+          }
+      }else{
+          $resultJson = array('success'=>false, 'result'=>false);
+      }
+      print_r(json_encode($resultJson));
+      mysqli_close($connect);
+    }
  }
 
 ?>

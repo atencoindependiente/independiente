@@ -1,5 +1,5 @@
 <?php
-class Lider{
+class Coordinador{
     private $mdl_nombre;
     private $mdl_apaterno;
     private $mdl_amaterno;
@@ -13,8 +13,9 @@ class Lider{
     private $motivo_movimiento;
     private $usuario_movimiento;
     private $directivo_id;
+    private $lider_id;
 
-    function __construct($mdl_nombre,$mdl_apaterno,$mdl_amaterno,$mdl_localidad,$mdl_seccion,$mdl_direccion,$mdl_cp,$mdl_tel_celular,$mdl_comentarios,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento,$directivo_id)
+    function __construct($mdl_nombre,$mdl_apaterno,$mdl_amaterno,$mdl_localidad,$mdl_seccion,$mdl_direccion,$mdl_cp,$mdl_tel_celular,$mdl_comentarios,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento,$directivo_id,$lider_id)
     {
          $this->mdl_nombre=$mdl_nombre;
          $this->mdl_apaterno=$mdl_apaterno;
@@ -29,6 +30,7 @@ class Lider{
          $this->motivo_movimiento=$motivo_movimiento;
          $this->usuario_movimiento=$usuario_movimiento;
          $this->directivo_id=$directivo_id;
+         $this->lider_id=$lider_id;
     }
     public function getNombre(){
 		return $this->mdl_nombre;
@@ -69,6 +71,9 @@ class Lider{
     public function getDirectivoId(){
       return $this->directivo_id;
     }
+    public function getLiderId(){
+        return $this->lider_id;
+      }
 
     public function setNombre($mdl_nombre){
 		$this->mdl_nombre = $mdl_nombre;
@@ -109,4 +114,8 @@ class Lider{
     public function setDirectivoId($directivo_id){
       $this->directivo_id= $directivo_id;
     }
+    public function setLiderId($lider_id){
+        $this->lider_id= $lider_id;
+      }
+    
 }

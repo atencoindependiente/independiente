@@ -381,4 +381,20 @@ VALUES (
     1,NOW(),"Sin motivo",
     1,1,1);
 
-    
+CREATE VIEW view_directores_nombre_completo AS 
+SELECT 
+    dire_id,
+    CONCAT(dire_nombre," ",dire_apaterno," ",dire_amaterno) AS dire_nombre_completo 
+FROM directivo WHERE dire_visible=1;
+
+CREATE VIEW view_lideres_nombre_completo AS 
+SELECT 
+    lide_id,
+    CONCAT(lide_nombre," ", lide_apaterno," ", lide_amaterno) AS lide_nombre_completo 
+FROM lider WHERE lide_visible=1;
+
+CREATE VIEW view_coordinador_nombre_completo AS 
+SELECT 
+    coor_id,
+    CONCAT(coor_nombre," ", coor_apaterno," ", coor_amaterno) AS coor_nombre_completo 
+FROM coordinador WHERE coor_visible=1;
