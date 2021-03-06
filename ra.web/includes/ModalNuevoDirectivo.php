@@ -106,19 +106,19 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="for_directivo_nombre">Nombre</label>
-                    <input type="text" class="form-control" id="mdl_directivo_nombre">
+                    <input type="text" class="form-control" id="mdl_directivo_nombre" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()">
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="for_directivo_apaterno">Apellido Paterno</label>
-                    <input type="text" class="form-control" id="mdl_directivo_apaterno">
+                    <input type="text" class="form-control" id="mdl_directivo_apaterno" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()">
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="for_directivo_amaterno">Apellido Materno</label>
-                    <input type="text" class="form-control" id="mdl_directivo_amaterno">
+                    <input type="text" class="form-control" id="mdl_directivo_amaterno" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()">
                   </div>
                 </div>
               </div>
@@ -126,7 +126,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="for_directivo_direccion">Dirección</label>
-                    <textarea class="form-control" id="mdl_directivo_direccion" rows="3"></textarea>
+                    <textarea class="form-control" id="mdl_directivo_direccion" rows="3" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()"></textarea>
                   </div>
                 </div>
               </div>
@@ -135,7 +135,7 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="for_directivo_tel_celular">Teléfono Celular</label>
-                    <input type="number" class="form-control" id="mdl_directivo_tel_celular">
+                    <input type="number" maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control" id="mdl_directivo_tel_celular">
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -150,7 +150,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="for_directivo_comnetarios">Comentarios:</label>
-                    <textarea class="form-control" id="mdl_directivo_comentarios" rows="3"></textarea>
+                    <textarea class="form-control" id="mdl_directivo_comentarios" rows="3" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()"></textarea>
                   </div>
                 </div>
               </div>

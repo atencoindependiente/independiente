@@ -63,5 +63,39 @@ class LiderDaoImpl implements ILiderDao{
       print_r(json_encode($resultJson));
       mysqli_close($connect);
     }
+
+    function mostrarLider(){
+      $datosDB = new DatosBD();
+      $connect = $datosDB->connect();
+
+      //$query = "SELECT * FROM view_afiliados WHERE afil_visible=1";
+      $query = "SELECT * FROM view_lideres";
+      $result = mysqli_query($connect, $query);
+      
+      $lider = array();
+      
+      if (mysqli_num_rows($result) > 0)
+          while (($fila = mysqli_fetch_array($result)) != NULL) {
+              $lide_id = $fila['lide_id'];
+              $lide_nombre_completo = preg_replace('/[\x00-\x1F]/', '\n', addslashes($fila['lide_nombre_completo']));
+              $lide_seccion = $fila['lide_seccion'];
+              $lide_direccion = preg_replace('/[\x00-\x1F]/', '\n', addslashes($fila['lide_direccion']));
+              $lide_tel_celular = $fila['lide_tel_celular'];
+              $lide_accion='Sin acción';
+
+              $lider[] = array(
+                                  'lide_id' => $lide_id,
+                                  'lide_nombre_completo' => $lide_nombre_completo,
+                                  'lide_seccion' => $lide_seccion,
+                                  'lide_direccion' => $lide_direccion,
+                                  'lide_tel_celular' => $lide_tel_celular,
+                                  'lide_accion' => $lide_accion
+                               );
+          }
+      //echo json_encode($afiliado);
+      print_r(json_encode(array('data'=> $lider)));
+      //mysqli_free_result($result);
+      mysqli_close($connect);
+    }
 }
 ?>

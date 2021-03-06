@@ -1,5 +1,9 @@
 $(document).ready(function() {
-    mostrarTablaAfiliados();
+    mostrarTablaDirectivos();
+    mostrarTablaLideres();
+    mostrarTablaCoordinadores();
+    mostrarTablaSimpatizantes();
+    mostrarTablaSimpatizantesIneEnListaNominal();
 
     $('#btn_guardar_datos_directivo').click(function() {
         validaCamposDirectivo();
@@ -991,7 +995,7 @@ function guardarDatosSimpatizante(mdl_localidad, mdl_seccion, mdl_cp, mdl_direct
     });
 }
 
-function mostrarTablaAfiliados() {
+function mostrarTablaDirectivos() {
     let table = $('#table_nuestros_directores').DataTable();
     table.destroy();
     $('#table_nuestros_directores').DataTable({
@@ -1036,6 +1040,279 @@ function mostrarTablaAfiliados() {
             [0, 'asc']
         ]
     });
+}
+
+function mostrarTablaLideres() {
+    let table = $('#table_nuestros_lideres').DataTable();
+    table.destroy();
+    $('#table_nuestros_lideres').DataTable({
+        "responsive": true,
+        "paging": true,
+        "info": true,
+        "searching": true,
+        "language": {
+            'sProcessing': 'Procesando...',
+            'sLengthMenu': 'Mostrar _MENU_ registros',
+            'sZeroRecords': 'No se encontraron resultados',
+            'sEmptyTable': 'Ningún dato disponible en esta tabla',
+            'sInfo': 'Del _START_ al _END_ de un total de _TOTAL_ registros',
+            'sInfoEmpty': 'Del 0 al 0 de un total de 0 registros',
+            'sInfoFiltered': '(filtrado de un total de _MAX_ registros)',
+            'sInfoPostFix': '',
+            'sSearch': 'Buscar:',
+            'sUrl': '',
+            'sInfoThousands': ',',
+            'sLoadingRecords': 'Cargando...',
+            'oPaginate': {
+                'sFirst': 'Primero',
+                'sLast': 'Último',
+                'sNext': 'Siguiente',
+                'sPrevious': 'Anterior'
+            },
+            'oAria': {
+                'sSortAscending': ': Activar para ordenar la columna de manera ascendente',
+                'sSortDescending': ': Activar para ordenar la columna de manera descendente'
+            }
+        },
+        "ajax": "./ra.view/MostrarLideres.php",
+        "columns": [
+            { "data": "lide_id" },
+            { "data": "lide_nombre_completo" },
+            { "data": "lide_seccion" },
+            { "data": "lide_direccion" },
+            { "data": "lide_tel_celular" },
+            { "data": "lide_accion" }
+        ],
+        "order": [
+            [0, 'asc']
+        ]
+    });
+}
+
+function mostrarTablaCoordinadores() {
+    let table = $('#table_nuestros_coordinador').DataTable();
+    table.destroy();
+    $('#table_nuestros_coordinador').DataTable({
+        "responsive": true,
+        "paging": true,
+        "info": true,
+        "searching": true,
+        "language": {
+            'sProcessing': 'Procesando...',
+            'sLengthMenu': 'Mostrar _MENU_ registros',
+            'sZeroRecords': 'No se encontraron resultados',
+            'sEmptyTable': 'Ningún dato disponible en esta tabla',
+            'sInfo': 'Del _START_ al _END_ de un total de _TOTAL_ registros',
+            'sInfoEmpty': 'Del 0 al 0 de un total de 0 registros',
+            'sInfoFiltered': '(filtrado de un total de _MAX_ registros)',
+            'sInfoPostFix': '',
+            'sSearch': 'Buscar:',
+            'sUrl': '',
+            'sInfoThousands': ',',
+            'sLoadingRecords': 'Cargando...',
+            'oPaginate': {
+                'sFirst': 'Primero',
+                'sLast': 'Último',
+                'sNext': 'Siguiente',
+                'sPrevious': 'Anterior'
+            },
+            'oAria': {
+                'sSortAscending': ': Activar para ordenar la columna de manera ascendente',
+                'sSortDescending': ': Activar para ordenar la columna de manera descendente'
+            }
+        },
+        "ajax": "./ra.view/MostrarCoordinador.php",
+        "columns": [
+            { "data": "coor_id" },
+            { "data": "coor_nombre_completo" },
+            { "data": "coor_seccion" },
+            { "data": "coor_direccion" },
+            { "data": "coor_tel_celular" },
+            { "data": "coor_accion" }
+        ],
+        "order": [
+            [0, 'asc']
+        ]
+    });
+}
+
+function mostrarTablaSimpatizantes() {
+    let table = $('#table_nuestros_simpatizante').DataTable();
+    table.destroy();
+    $('#table_nuestros_simpatizante').DataTable({
+        "responsive": true,
+        "paging": true,
+        "info": true,
+        "searching": true,
+        "language": {
+            'sProcessing': 'Procesando...',
+            'sLengthMenu': 'Mostrar _MENU_ registros',
+            'sZeroRecords': 'No se encontraron resultados',
+            'sEmptyTable': 'Ningún dato disponible en esta tabla',
+            'sInfo': 'Del _START_ al _END_ de un total de _TOTAL_ registros',
+            'sInfoEmpty': 'Del 0 al 0 de un total de 0 registros',
+            'sInfoFiltered': '(filtrado de un total de _MAX_ registros)',
+            'sInfoPostFix': '',
+            'sSearch': 'Buscar:',
+            'sUrl': '',
+            'sInfoThousands': ',',
+            'sLoadingRecords': 'Cargando...',
+            'oPaginate': {
+                'sFirst': 'Primero',
+                'sLast': 'Último',
+                'sNext': 'Siguiente',
+                'sPrevious': 'Anterior'
+            },
+            'oAria': {
+                'sSortAscending': ': Activar para ordenar la columna de manera ascendente',
+                'sSortDescending': ': Activar para ordenar la columna de manera descendente'
+            }
+        },
+        "ajax": "./ra.view/MostrarSimpatizante.php",
+        "columns": [
+            { "data": "simpine_id" },
+            { "data": "simpine_nombre_completo" },
+            { "data": "simpine_seccion" },
+            { "data": "simpine_comentario" },
+            { "data": "simpine_fecha_movimiento" }
+        ],
+        "order": [
+            [0, 'asc']
+        ]
+    });
+    //let table = $('#table_nuestros_simpatizante').DataTable();
+    //table.destroy();
+    //$('#table_nuestros_simpatizante').DataTable({
+    //    "responsive": true,
+    //    "paging": true,
+    //    "info": true,
+    //    "searching": true,
+    //    "language": {
+    //        'sProcessing': 'Procesando...',
+    //        'sLengthMenu': 'Mostrar _MENU_ registros',
+    //        'sZeroRecords': 'No se encontraron resultados',
+    //        'sEmptyTable': 'Ningún dato disponible en esta tabla',
+    //        'sInfo': 'Del _START_ al _END_ de un total de _TOTAL_ registros',
+    //        'sInfoEmpty': 'Del 0 al 0 de un total de 0 registros',
+    //        'sInfoFiltered': '(filtrado de un total de _MAX_ registros)',
+    //        'sInfoPostFix': '',
+    //        'sSearch': 'Buscar:',
+    //        'sUrl': '',
+    //        'sInfoThousands': ',',
+    //        'sLoadingRecords': 'Cargando...',
+    //        'oPaginate': {
+    //            'sFirst': 'Primero',
+    //            'sLast': 'Último',
+    //            'sNext': 'Siguiente',
+    //            'sPrevious': 'Anterior'
+    //        },
+    //        'oAria': {
+    //            'sSortAscending': ': Activar para ordenar la columna de manera ascendente',
+    //            'sSortDescending': ': Activar para ordenar la columna de manera descendente'
+    //        }
+    //    },
+    //    "ajax": "./ra.view/MostrarSimpatizante.php",
+    //    "columns": [
+    //        { "data": "simp_id" },
+    //        { "data": "simp_nombre_completo" },
+    //        { "data": "simp_seccion" },
+    //        { "data": "simp_direccion" },
+    //        { "data": "simp_tel_celular" },
+    //        { "data": "coor_nombre_completo" },
+    //        { "data": "lide_nombre_completo" }
+    //    ],
+    //    "order": [
+    //        [0, 'asc']
+    //    ]
+    //});
+}
+
+function mostrarTablaSimpatizantesIneEnListaNominal() {
+    let table = $('#table_nuestros_simpatizante_en_lista_nominal').DataTable();
+    table.destroy();
+    $('#table_nuestros_simpatizante_en_lista_nominal').DataTable({
+        "responsive": true,
+        "paging": true,
+        "info": true,
+        "searching": true,
+        "language": {
+            'sProcessing': 'Procesando...',
+            'sLengthMenu': 'Mostrar _MENU_ registros',
+            'sZeroRecords': 'No se encontraron resultados',
+            'sEmptyTable': 'Ningún dato disponible en esta tabla',
+            'sInfo': 'Del _START_ al _END_ de un total de _TOTAL_ registros',
+            'sInfoEmpty': 'Del 0 al 0 de un total de 0 registros',
+            'sInfoFiltered': '(filtrado de un total de _MAX_ registros)',
+            'sInfoPostFix': '',
+            'sSearch': 'Buscar:',
+            'sUrl': '',
+            'sInfoThousands': ',',
+            'sLoadingRecords': 'Cargando...',
+            'oPaginate': {
+                'sFirst': 'Primero',
+                'sLast': 'Último',
+                'sNext': 'Siguiente',
+                'sPrevious': 'Anterior'
+            },
+            'oAria': {
+                'sSortAscending': ': Activar para ordenar la columna de manera ascendente',
+                'sSortDescending': ': Activar para ordenar la columna de manera descendente'
+            }
+        },
+        "ajax": "./ra.view/MostrarSimpatizanteEnListaNominal.php",
+        "columns": [
+            { "data": "simpinelisnom_nombre_completo" },
+            { "data": "simpinelisnom_seccion" }
+        ],
+        "order": [
+            [0, 'asc']
+        ]
+    });
+    //let table = $('#table_nuestros_simpatizante').DataTable();
+    //table.destroy();
+    //$('#table_nuestros_simpatizante').DataTable({
+    //    "responsive": true,
+    //    "paging": true,
+    //    "info": true,
+    //    "searching": true,
+    //    "language": {
+    //        'sProcessing': 'Procesando...',
+    //        'sLengthMenu': 'Mostrar _MENU_ registros',
+    //        'sZeroRecords': 'No se encontraron resultados',
+    //        'sEmptyTable': 'Ningún dato disponible en esta tabla',
+    //        'sInfo': 'Del _START_ al _END_ de un total de _TOTAL_ registros',
+    //        'sInfoEmpty': 'Del 0 al 0 de un total de 0 registros',
+    //        'sInfoFiltered': '(filtrado de un total de _MAX_ registros)',
+    //        'sInfoPostFix': '',
+    //        'sSearch': 'Buscar:',
+    //        'sUrl': '',
+    //        'sInfoThousands': ',',
+    //        'sLoadingRecords': 'Cargando...',
+    //        'oPaginate': {
+    //            'sFirst': 'Primero',
+    //            'sLast': 'Último',
+    //            'sNext': 'Siguiente',
+    //            'sPrevious': 'Anterior'
+    //        },
+    //        'oAria': {
+    //            'sSortAscending': ': Activar para ordenar la columna de manera ascendente',
+    //            'sSortDescending': ': Activar para ordenar la columna de manera descendente'
+    //        }
+    //    },
+    //    "ajax": "./ra.view/MostrarSimpatizante.php",
+    //    "columns": [
+    //        { "data": "simp_id" },
+    //        { "data": "simp_nombre_completo" },
+    //        { "data": "simp_seccion" },
+    //        { "data": "simp_direccion" },
+    //        { "data": "simp_tel_celular" },
+    //        { "data": "coor_nombre_completo" },
+    //        { "data": "lide_nombre_completo" }
+    //    ],
+    //    "order": [
+    //        [0, 'asc']
+    //    ]
+    //});
 }
 
 function vaciaCampos(tipo) {

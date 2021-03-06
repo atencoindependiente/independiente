@@ -321,7 +321,7 @@ VALUES (
     "000000000",
     "Sin correo",
     "Sin comentarios",
-    1,NOW(),"Sin motivo",
+    0,NOW(),"Sin motivo",
     1);
 
 INSERT INTO lider(
@@ -349,7 +349,7 @@ INSERT INTO lider(
         "00000",
         "0000000000",
         "Sin comentario",
-        1,NOW(),"Sin motivo",
+        0,NOW(),"Sin motivo",
         1,1);
 
 INSERT INTO coordinador(
@@ -378,7 +378,7 @@ VALUES (
     "00000",
     "0000000000",
     "Sin comentarios",
-    1,NOW(),"Sin motivo",
+    0,NOW(),"Sin motivo",
     1,1,1);
 
 CREATE VIEW view_directores_nombre_completo AS 
@@ -398,3 +398,142 @@ SELECT
     coor_id,
     CONCAT(coor_nombre," ", coor_apaterno," ", coor_amaterno) AS coor_nombre_completo 
 FROM coordinador WHERE coor_visible=1;
+
+CREATE VIEW view_directores AS 
+SELECT 
+    dire_id,
+    dire_nombre,
+    dire_apaterno,
+    dire_amaterno,
+    CONCAT(dire_nombre, " ",dire_apaterno, " ",dire_amaterno) AS dire_nombre_completo,
+    dire_localidad, 
+    dire_seccion, 
+    dire_direccion, 
+    dire_cp, 
+    dire_tel_celular, 
+    dire_correo, 
+    dire_comentario, 
+    dire_visible, 
+    dire_fecha_movimiento, 
+    dire_motivo_movimiento, 
+    dire_fk_usuario_movimiento 
+FROM directivo 
+WHERE dire_visible=1;
+
+CREATE VIEW view_lideres AS 
+SELECT 
+	lide_id, 
+    lide_nombre,
+    lide_apaterno,
+    lide_amaterno,
+	CONCAT(lide_nombre, " ", lide_apaterno, " ",lide_amaterno) AS lide_nombre_completo,
+	lide_localidad, 
+	lide_seccion, 
+	lide_direccion, 
+	lide_cp, 
+	lide_tel_celular, 
+	lide_comentario, 
+	lide_visible, 
+	lide_fecha_movimiento, 
+	lide_motivo_movimiento, 
+	lide_fk_directivo, 
+	lide_fk_usuario_movimiento
+    dire_id, 
+	dire_nombre, 
+	dire_apaterno, 
+	dire_amaterno,
+	CONCAT(dire_nombre," ",dire_apaterno," ",dire_amaterno) AS dire_nombre_completo
+FROM lider 
+INNER JOIN directivo ON lide_fk_directivo=dire_id
+WHERE lide_visible=1;
+
+CREATE VIEW view_coordinadores AS 
+SELECT 
+	coor_id,
+	coor_nombre, 
+	coor_apaterno, 
+	coor_amaterno,
+    CONCAT(coor_nombre," ",coor_apaterno," ",coor_amaterno) AS coor_nombre_completo, 
+	coor_localidad, 
+	coor_seccion, 
+	coor_direccion, 
+	coor_cp, 
+	coor_tel_celular, 
+	coor_comentario, 
+	coor_visible, 
+	coor_fecha_movimiento, 
+	coor_motivo_movimiento, 
+	coor_fk_directivo, 
+	coor_fk_lider, 
+	coor_fk_usuario_movimiento,
+    dire_id, 
+	dire_nombre, 
+	dire_apaterno, 
+	dire_amaterno,
+	CONCAT(dire_nombre," ",dire_apaterno," ",dire_amaterno) AS dire_nombre_completo,
+	lide_id, 
+	lide_nombre, 
+	lide_apaterno, 
+	lide_amaterno, 
+	CONCAT(lide_nombre," ",lide_apaterno," ",lide_amaterno) AS lide_nombre_completo
+FROM coordinador
+INNER JOIN directivo ON coor_fk_directivo=dire_id
+INNER JOIN lider ON coor_fk_lider=lide_id
+WHERE coor_visible=1;
+
+CREATE VIEW view_simpatizante AS 
+SELECT 
+	simp_id, 
+	simp_nombre, 
+	simp_apaterno, 
+	simp_amaterno, 
+    CONCAT(simp_nombre," ",simp_apaterno," ",simp_amaterno) AS simp_nombre_completo,
+	simp_localidad, 
+	simp_seccion, 
+	simp_direccion, 
+	simp_cp, 
+	simp_tel_celular, 
+	simp_comentario, 
+	simp_visible, 
+	simp_fecha_movimiento, 
+	simp_motivo_movimiento, 
+	simp_fk_directivo, 
+	simp_fk_lider, 
+	simp_fk_coordinador, 
+	simp_fk_usuario_movimiento, 
+	dire_id, 
+	dire_nombre, 
+	dire_apaterno, 
+	dire_amaterno,
+	CONCAT(dire_nombre," ",dire_apaterno," ",dire_amaterno) AS dire_nombre_completo,
+	lide_id, 
+	lide_nombre, 
+	lide_apaterno, 
+	lide_amaterno, 
+	CONCAT(lide_nombre," ",lide_apaterno," ",lide_amaterno) AS lide_nombre_completo,
+	coor_id, 
+	coor_nombre, 
+	coor_apaterno, 
+	coor_amaterno,
+	CONCAT(coor_nombre," ",coor_apaterno," ",coor_amaterno) AS coor_nombre_completo
+FROM simpatizante 
+INNER JOIN directivo ON simp_fk_directivo=dire_id 
+INNER JOIN lider ON simp_fk_lider=lide_id
+INNER JOIN coordinador ON simp_fk_coordinador=coor_id
+WHERE simp_visible=1;
+
+CREATE TABLE simpatizante_ine (
+    simpine_id INT PRIMARY KEY AUTO_INCREMENT,
+    simpine_nombre VARCHAR(50) DEFAULT 'DEFAULT',
+    simpine_apaterno VARCHAR(50) DEFAULT 'DEFAULT',
+    simpine_amaterno VARCHAR(50) DEFAULT 'DEFAULT',
+    simpine_seccion VARCHAR(50) DEFAULT 'DEFAULT',
+    simpine_comentario VARCHAR(200) DEFAULT 'DEFAULT',
+    simpine_visible TINYINT(1) DEFAULT 0,
+    simpine_fecha_movimiento DATETIME DEFAULT '2001-01-01 01:01:01',
+    simpine_motivo_movimiento TEXT NOT NULL,
+    simpine_fk_usuario_movimiento INT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+
+

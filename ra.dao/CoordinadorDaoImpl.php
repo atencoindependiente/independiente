@@ -64,5 +64,39 @@ class CoordinadorDaoImpl implements ICoordinadorDAO{
         print_r(json_encode($resultJson));
         mysqli_close($connect);
     }
+
+    function mostrarCoordinador(){
+      $datosDB = new DatosBD();
+      $connect = $datosDB->connect();
+
+      //$query = "SELECT * FROM view_afiliados WHERE afil_visible=1";
+      $query = "SELECT * FROM view_coordinadores";
+      $result = mysqli_query($connect, $query);
+      
+      $coolider = array();
+      
+      if (mysqli_num_rows($result) > 0)
+          while (($fila = mysqli_fetch_array($result)) != NULL) {
+              $coor_id = $fila['coor_id'];
+              $coor_nombre_completo = preg_replace('/[\x00-\x1F]/', '\n', addslashes($fila['coor_nombre_completo']));
+              $coor_seccion = $fila['coor_seccion'];
+              $coor_direccion = preg_replace('/[\x00-\x1F]/', '\n', addslashes($fila['coor_direccion']));
+              $coor_tel_celular = $fila['coor_tel_celular'];
+              $coor_accion='Sin acción';
+
+              $coolider[] = array(
+                                  'coor_id' => $coor_id,
+                                  'coor_nombre_completo' => $coor_nombre_completo,
+                                  'coor_seccion' => $coor_seccion,
+                                  'coor_direccion' => $coor_direccion,
+                                  'coor_tel_celular' => $coor_tel_celular,
+                                  'coor_accion' => $coor_accion
+                               );
+          }
+      //echo json_encode($afiliado);
+      print_r(json_encode(array('data'=> $coolider)));
+      //mysqli_free_result($result);
+      mysqli_close($connect);
+    }
 }
 ?>

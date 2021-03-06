@@ -57,11 +57,96 @@
         </div>
       </div>
     </section>-->
-
+    <section class="ftco-section ftco-no-pt ftco-no-pb">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-md-12" align="center">
+            <h3>Simpatizante del INE</h3>
+          <div>
+        </div>
+            <table class="table table-bordered table-condense table-hover table-striped dataTable no-footer dtr-inline" id="table_nuestros_simpatizante">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Sección</th>
+                  <th scope="col">Comentario</th>
+                  <th scope="col">Fecha</th>
+                </tr>
+              </thead>
+              <tbody id="tbody_simpatizantes">
+              </tbody>
+            </table>
+    				  <!--<div class="row justify-content-start pt-3 pb-3">
+                <div class="col-md-12 heading-section ftco-animate">
+                  <table class="table" id="table_nuestros_simpatizante">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Sección</th>
+                        <th scope="col">Simpatizante</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Acción</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tbody_simpatizantes">
+                    </tbody>
+                  </table>
+                </div>
+		          </div>
+		        </div>
+	        </div>
+        </div>-->
+    	</div>
+    </section>
+    <br><br>
+    <section class="ftco-section ftco-no-pt ftco-no-pb">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-md-12" align="center">
+            <h3>Simpatizante del INE en lista nominal</h3>
+          <div>
+        </div>
+            <table class="table table-bordered table-condense table-hover table-striped dataTable no-footer dtr-inline" id="table_nuestros_simpatizante_en_lista_nominal">
+              <thead>
+                <tr>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Sección</th>
+                </tr>
+              </thead>
+              <tbody id="tbody_simpatizantes">
+              </tbody>
+            </table>
+    				  <!--<div class="row justify-content-start pt-3 pb-3">
+                <div class="col-md-12 heading-section ftco-animate">
+                  <table class="table" id="table_nuestros_simpatizante">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Sección</th>
+                        <th scope="col">Simpatizante</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Acción</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tbody_simpatizantes">
+                    </tbody>
+                  </table>
+                </div>
+		          </div>
+		        </div>
+	        </div>
+        </div>-->
+    	</div>
+    </section>
+    <br><br>
     <section class="ftco-section ftco-no-pt ftco-no-pb">
     	<div class="container">
     		<div class="row d-flex">
-    			<div class="col-md-12 px-5 py-5">
+    			<div class="col-md-12 px-5 py-5" align="center">
+            <h3>Coordinadores</h3>
     				<div class="row justify-content-start pt-3 pb-3">
 		            <div class="col-md-12 heading-section ftco-animate">
                   <!--<div align="right">
@@ -77,7 +162,105 @@
                 </div>
                 <br>
                 <div class="col-md-12 heading-section ftco-animate">
-                  <table class="table" id="table_nuestros_directores">
+                  <table class="table table-bordered table-condense table-hover table-striped dataTable no-footer dtr-inline" id="table_nuestros_coordinador">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Sección</th>
+                        <th scope="col">Coordinador</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Acción</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tbody_coolideres">
+                      <!--<tr>
+                        <th scope="row">Juan Manuel De lucio Ramirez</th>
+                        <td>0236</td>
+                        <td>Priv. Libertad #7</td>
+                        <td>5531220199</td>
+                        <td></td>
+                      </tr>-->
+                    </tbody>
+                  </table>
+                </div>
+		          </div>
+		        </div>
+	        </div>
+        </div>
+    	</div>
+    </section>
+    <br><br>
+    <section class="ftco-section ftco-no-pt ftco-no-pb">
+    	<div class="container">
+    		<div class="row d-flex">
+    			<div class="col-md-12 px-5 py-5" align="center">
+            <h3>Lideres</h3>
+    				<div class="row justify-content-start pt-3 pb-3">
+		            <div class="col-md-12 heading-section ftco-animate">
+                  <!--<div align="right">
+                    <button type="button" class="btn btn-primary" onclick="mostrarModalAgregarAfiliado();">Agregar Afiliado</button>
+                  </div>
+		          	  <span class="subheading">Welcome to Judge</span>
+		              <h2 class="mb-4">We Always Fight For Your Justice to Win</h2>
+		              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+		              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+                    -->
+                  <div class="years d-flex">
+                </div>
+                <br>
+                <div class="col-md-12 heading-section ftco-animate">
+                  <table class="table table-bordered table-condense table-hover table-striped dataTable no-footer dtr-inline" id="table_nuestros_lideres">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Sección</th>
+                        <th scope="col">Lider</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Acción</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tbody_lideres">
+                      <!--<tr>
+                        <th scope="row">Juan Manuel De lucio Ramirez</th>
+                        <td>0236</td>
+                        <td>Priv. Libertad #7</td>
+                        <td>5531220199</td>
+                        <td></td>
+                      </tr>-->
+                    </tbody>
+                  </table>
+                </div>
+		          </div>
+		        </div>
+	        </div>
+        </div>
+    	</div>
+    </section>
+    <br><br>
+    <section class="ftco-section ftco-no-pt ftco-no-pb">
+    	<div class="container">
+    		<div class="row d-flex">
+    			<div class="col-md-12 px-5 py-5" align="center">
+            <h3>Directores</h3>
+    				<div class="row justify-content-start pt-3 pb-3">
+		            <div class="col-md-12 heading-section ftco-animate">
+                  <!--<div align="right">
+                    <button type="button" class="btn btn-primary" onclick="mostrarModalAgregarAfiliado();">Agregar Afiliado</button>
+                  </div>
+		          	  <span class="subheading">Welcome to Judge</span>
+		              <h2 class="mb-4">We Always Fight For Your Justice to Win</h2>
+		              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+		              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+                    -->
+                  <div class="years d-flex">
+                </div>
+                <br>
+                <div class="col-md-12 heading-section ftco-animate">
+                  <table class="table table-bordered table-condense table-hover table-striped dataTable no-footer dtr-inline" id="table_nuestros_directores">
                     <thead>
                       <tr>
                         <th scope="col">ID</th>
@@ -105,6 +288,8 @@
         </div>
     	</div>
     </section>
+
+
     
     <?php include("./ra.web/includes/HeaderEnd.php");?>
     <?php include("./ra.web/includes/HeadEnd.php");?>	

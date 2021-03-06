@@ -18,7 +18,7 @@ $mdl_directivo = $_POST["mdl_directivo"];
 $mdl_tel_celular = $_POST["mdl_tel_celular"];
 $mdl_comentarios = $_POST["mdl_comentarios"];
 $fecha_movimiento = date("Y-m-d H:i:s");
-$motivo_movimiento="Se agrega nuevo coordinador.";
+$motivo_movimiento="Se agrega nuevo simpatizante.";
 //$usuario_movimiento = $_SESSION["usuario_id"];
 $usuario_movimiento = 1;
 

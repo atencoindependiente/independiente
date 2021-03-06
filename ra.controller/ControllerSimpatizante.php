@@ -12,5 +12,10 @@ class ControllerSimpatizante {
         $dao = new SimpatizanteDaoImpl();
         $dao->registrarSimpatizante($simpatizante);
     }
+
+    function mostrarSimpatizanteEnListaNominal(){
+        $dao = new SimpatizanteDaoImpl();
+        $dao->mostrarSimpatizanteEnListaNominal();
+    }
 }
 ?>

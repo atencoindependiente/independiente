@@ -10,7 +10,7 @@ require_once("../ra.data/DatosBD.php");
         $connect = $datosDB->connect();
 
         //$query = "SELECT * FROM view_afiliados WHERE afil_visible=1";
-        $query = "SELECT dire_id, CONCAT(dire_nombre, dire_apaterno, dire_amaterno) AS dire_nombre_completo, dire_seccion, dire_direccion, dire_tel_celular FROM directivo WHERE dire_visible=1";
+        $query = "SELECT * FROM view_directores";
         $result = mysqli_query($connect, $query);
         
         $directivo = array();
