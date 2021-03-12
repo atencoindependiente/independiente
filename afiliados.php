@@ -64,40 +64,20 @@
             <h3>Simpatizante del INE</h3>
           <div>
         </div>
-            <table class="table table-bordered table-condense table-hover table-striped dataTable no-footer dtr-inline" id="table_nuestros_simpatizante">
-              <thead>
-                <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Sección</th>
-                  <th scope="col">Comentario</th>
-                  <th scope="col">Fecha</th>
-                </tr>
-              </thead>
-              <tbody id="tbody_simpatizantes">
-              </tbody>
-            </table>
-    				  <!--<div class="row justify-content-start pt-3 pb-3">
-                <div class="col-md-12 heading-section ftco-animate">
-                  <table class="table" id="table_nuestros_simpatizante">
-                    <thead>
-                      <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Sección</th>
-                        <th scope="col">Simpatizante</th>
-                        <th scope="col">Teléfono</th>
-                        <th scope="col">Acción</th>
-                      </tr>
-                    </thead>
-                    <tbody id="tbody_simpatizantes">
-                    </tbody>
-                  </table>
-                </div>
-		          </div>
-		        </div>
-	        </div>
-        </div>-->
+        <table class="table table-bordered table-condense table-hover table-striped dataTable no-footer dtr-inline" id="table_nuestros_simpatizante_ine">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Sección</th>
+              <th scope="col">Comentario</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Acción</th>
+            </tr>
+          </thead>
+          <tbody id="tbody_simpatizantes_ine">
+          </tbody>
+        </table>
     	</div>
     </section>
     <br><br>
@@ -108,37 +88,42 @@
             <h3>Simpatizante del INE en lista nominal</h3>
           <div>
         </div>
-            <table class="table table-bordered table-condense table-hover table-striped dataTable no-footer dtr-inline" id="table_nuestros_simpatizante_en_lista_nominal">
-              <thead>
-                <tr>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Sección</th>
-                </tr>
-              </thead>
-              <tbody id="tbody_simpatizantes">
-              </tbody>
-            </table>
-    				  <!--<div class="row justify-content-start pt-3 pb-3">
-                <div class="col-md-12 heading-section ftco-animate">
-                  <table class="table" id="table_nuestros_simpatizante">
-                    <thead>
-                      <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Sección</th>
-                        <th scope="col">Simpatizante</th>
-                        <th scope="col">Teléfono</th>
-                        <th scope="col">Acción</th>
-                      </tr>
-                    </thead>
-                    <tbody id="tbody_simpatizantes">
-                    </tbody>
-                  </table>
-                </div>
-		          </div>
-		        </div>
-	        </div>
-        </div>-->
+        <table class="table table-bordered table-condense table-hover table-striped dataTable no-footer dtr-inline" id="table_nuestros_simpatizante_en_lista_nominal">
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Sección</th>
+            </tr>
+          </thead>
+          <tbody id="tbody_simpatizantes_en_lista_nominal">
+          </tbody>
+        </table>
+    	</div>
+    </section>
+    <br><br>
+    <section class="ftco-section ftco-no-pt ftco-no-pb">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-md-12" align="center">
+            <h3>Simpatizante</h3>
+          <div>
+        </div>
+        <table class="table table-bordered table-condense table-hover table-striped dataTable no-footer dtr-inline" id="table_nuestros_simpatizante">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Sección</th>
+              <th scope="col">Dirección</th>
+              <th scope="col">Telefono</th>
+              <th scope="col">Coordinador</th>
+              <th scope="col">Lider</th>
+              <th scope="col">Acción</th>
+            </tr>
+          </thead>
+          <tbody id="tbody_simpatizantes">
+          </tbody>
+        </table>
     	</div>
     </section>
     <br><br>
@@ -297,6 +282,8 @@
     <?php include("./ra.web/includes/ModalNuevoLider.php");?>
     <?php include("./ra.web/includes/ModalNuevoCoordinador.php");?>
     <?php include("./ra.web/includes/ModalNuevoSimpatizante.php");?>
+    <?php include("./ra.web/includes/ModalEditarSimpatizante.php");?>
+    
 </body>
     <script src="./ra.web/js/afiliados.js"></script>
 </html>

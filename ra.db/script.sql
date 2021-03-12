@@ -522,7 +522,7 @@ INNER JOIN lider ON simp_fk_lider=lide_id
 INNER JOIN coordinador ON simp_fk_coordinador=coor_id
 WHERE simp_visible=1;
 
-CREATE TABLE simpatizante_ine (
+/*CREATE TABLE simpatizante_ine (
     simpine_id INT PRIMARY KEY AUTO_INCREMENT,
     simpine_nombre VARCHAR(50) DEFAULT 'DEFAULT',
     simpine_apaterno VARCHAR(50) DEFAULT 'DEFAULT',
@@ -534,6 +534,7 @@ CREATE TABLE simpatizante_ine (
     simpine_motivo_movimiento TEXT NOT NULL,
     simpine_fk_usuario_movimiento INT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+*/
 
 
 
