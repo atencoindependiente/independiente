@@ -55,7 +55,7 @@ class SimpatizanteDaoImpl implements ISimpatizanteDAO{
 
       $datosDB = new DatosBD();
       $connect = $datosDB->connect();
-      $query = "UPDATE simpatizante_ine SET simpine_localidad='".$mdl_localidad."', simpine_direccion='".$mdl_direccion."', simpine_cp='".$mdl_cp."', simpine_tel_celular='".$mdl_tel_celular."', simpine_fecha_movimiento='".$fecha_movimiento."', simpine_motivo_movimiento='".$motivo_movimiento."', simpine_fk_directivo='".$directivo_id."', simpine_fk_lider='".$lider_id."', simpine_fk_coordinador='".$coordinador_id."', simpine_fk_usuario_movimiento='".$usuario_movimiento."' WHERE simpine_id='".$mdl_simpine_id."'";
+      $query = "UPDATE simpatizante_ine SET simpine_localidad='".$mdl_localidad."', simpine_direccion='".$mdl_direccion."', simpine_cp='".$mdl_cp."', simpine_tel_celular='".$mdl_tel_celular."', simpine_fecha_movimiento='".$fecha_movimiento."', simpine_motivo_movimiento='".$motivo_movimiento."', simpine_fk_directivo='".$directivo_id."', simpine_fk_lider='".$lider_id."', simpine_fk_coordinador='".$coordinador_id."', simpine_fk_usuario_movimiento='".$usuario_movimiento."', simpine_visible=0 WHERE simpine_id='".$mdl_simpine_id."'";
       $result=mysqli_query($connect, $query);
         if ($result){
           $arrayResult=array('sucess'=>true);
@@ -86,7 +86,8 @@ class SimpatizanteDaoImpl implements ISimpatizanteDAO{
               $simp_tel_celular = $fila['simp_tel_celular'];
               $coor_nombre_completo = $fila['coor_nombre_completo'];
               $lide_nombre_completo = $fila['lide_nombre_completo'];
-              $boton_accion= str_replace('simp_id', $fila['simp_id'], $botones->getBotonEditarSimpatizante());
+              //$boton_accion= str_replace('simp_id', $fila['simp_id'], $botones->getBotonEditarSimpatizante());
+              $boton_accion= "Sin Acción";
 
               $simp[] = array(
                             'simp_id' => $simp_id,

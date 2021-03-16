@@ -80,7 +80,7 @@
         </table>
     	</div>
     </section>
-    <br><br>
+    <!--<br><br>
     <section class="ftco-section ftco-no-pt ftco-no-pb">
     	<div class="container">
     		<div class="row">
@@ -99,7 +99,7 @@
           </tbody>
         </table>
     	</div>
-    </section>
+    </section>-->
     <br><br>
     <section class="ftco-section ftco-no-pt ftco-no-pb">
     	<div class="container">

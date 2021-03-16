@@ -4,7 +4,7 @@ $(document).ready(function() {
     mostrarTablaCoordinadores();
     mostrarTablaSimpatizantes();
     mostrarTablaSimpatizantesIne();
-    mostrarTablaSimpatizantesIneEnListaNominal();
+    //mostrarTablaSimpatizantesIneEnListaNominal();
 
     $('#btn_guardar_datos_directivo').click(function() {
         validaCamposDirectivo();
