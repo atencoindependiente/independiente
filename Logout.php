@@ -2,6 +2,7 @@
     session_start(); 
     session_unset(); 
     session_destroy(); 
-    header("location: ../../index.php");
+    //echo 1;
+    header("location: ./index.php");
 
 ?>

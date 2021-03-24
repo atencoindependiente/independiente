@@ -48,7 +48,7 @@ function validarLogin(usuario, contrasena) {
             case true:
                 console.log("Entraste Correctamente");
                 $("#ModalCenterInicioSesion").modal('hide');
-                $.redirect('./index_home.php', {});
+                $.redirect('./index_principal.php', {});
                 break;
             case false:
                 swal("Atención!", "Usuario o contraseña incorrecto. \n Por Favor, Intente de nuevo.", "warning");

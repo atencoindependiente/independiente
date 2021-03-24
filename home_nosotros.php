@@ -1,4 +1,4 @@
-<?php include("./ra.web/includes/ValidaSession.php");?>
+<?php //include("./ra.web/includes/ValidaSession.php");?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -8,7 +8,7 @@
 </head>
 
 <body>				
-  <?php include("./ra.web/includes/HeadTop.php");?>
+  <?php include("./ra.web/includes/HeadTopInvitado.php");?>
     
     <div class="hero-wrap js-fullheight" style="background-image: url('./ra.web/img/img3.jpg');" height: 890px; data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
