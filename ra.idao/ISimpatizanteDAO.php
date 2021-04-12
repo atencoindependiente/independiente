@@ -6,4 +6,5 @@ interface ISimpatizanteDAO {
     function mostrarSimpatizante();
     function mostrarSimpatizanteIne();
     function mostrarSimpatizanteEnListaNominal();
+    function eliminarSimpatizante($mdl_simpine_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento);
 }

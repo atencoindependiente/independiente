@@ -82,7 +82,7 @@ class CoordinadorDaoImpl implements ICoordinadorDAO{
               $coor_seccion = $fila['coor_seccion'];
               $coor_direccion = preg_replace('/[\x00-\x1F]/', '\n', addslashes($fila['coor_direccion']));
               $coor_tel_celular = $fila['coor_tel_celular'];
-              $coor_accion='Sin acción';
+              $lide_nombre_completo=$fila['lide_nombre_completo'];
 
               $coolider[] = array(
                                   'coor_id' => $coor_id,
@@ -90,7 +90,7 @@ class CoordinadorDaoImpl implements ICoordinadorDAO{
                                   'coor_seccion' => $coor_seccion,
                                   'coor_direccion' => $coor_direccion,
                                   'coor_tel_celular' => $coor_tel_celular,
-                                  'coor_accion' => $coor_accion
+                                  'lide_nombre_completo' => $lide_nombre_completo
                                );
           }
       //echo json_encode($afiliado);

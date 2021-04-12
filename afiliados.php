@@ -155,7 +155,7 @@
                         <th scope="col">Sección</th>
                         <th scope="col">Coordinador</th>
                         <th scope="col">Teléfono</th>
-                        <th scope="col">Acción</th>
+                        <th scope="col">Lider</th>
                       </tr>
                     </thead>
                     <tbody id="tbody_coolideres">

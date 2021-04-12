@@ -124,7 +124,7 @@ class SimpatizanteDaoImpl implements ISimpatizanteDAO{
               $simpine_seccion = $fila['simpine_seccion'];
               $simpine_comentario = preg_replace('/[\x00-\x1F]/', '\n', addslashes($fila['simpine_comentario']));
               $simpine_fecha_movimiento = preg_replace('/[\x00-\x1F]/', '\n', addslashes($fila['simpine_fecha_movimiento']));
-              $boton_accion= str_replace('simpine_id', $fila['simpine_id'], $botones->getBotonEditarSimpatizanteIne());
+              $boton_accion= str_replace('simpine_id', $fila['simpine_id'], $botones->getBotonEditarSimpatizanteIne())." ".str_replace('simpine_id', $fila['simpine_id'], $botones->getBotonEliminarSimpatizanteIne());
 
               $simp[] = array(
                             'simpine_id' => $simpine_id,
@@ -211,6 +211,20 @@ class SimpatizanteDaoImpl implements ISimpatizanteDAO{
       }
      
       mysqli_close($connect);
+    }
+
+    function eliminarSimpatizante($mdl_simpine_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento){
+      $datosDB = new DatosBD();
+      $connect = $datosDB->connect();
+      $query = "UPDATE simpatizante_ine SET simpine_visible=0, simpine_fecha_movimiento='".$fecha_movimiento."', simpine_motivo_movimiento='".$motivo_movimiento."', simpine_fk_usuario_movimiento='".$usuario_movimiento."' WHERE simpine_id='".$mdl_simpine_id."'";
+      $result=mysqli_query($connect, $query);
+        if ($result){
+          $arrayResult=array('sucess'=>true);
+        }else{
+          $arrayResult=array('sucess'=>$result);
+        }
+      echo json_encode($arrayResult);
+      $connect->close();
     }
 }
 

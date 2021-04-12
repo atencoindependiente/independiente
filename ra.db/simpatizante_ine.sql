@@ -18,7 +18,7 @@ CONCAT(simpine_nombre,' ', simpine_apaterno,' ', simpine_amaterno) AS simpine_no
 simpine_seccion, 
 simpine_comentario,
 simpine_fecha_movimiento
-FROM simpatizante_ine;
+FROM simpatizante_ine WHERE simpine_visible=1; 
 
 INSERT INTO simpatizante_ine(
 	simpine_nombre, 

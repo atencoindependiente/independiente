@@ -1407,7 +1407,7 @@ function mostrarTablaCoordinadores() {
             { "data": "coor_seccion" },
             { "data": "coor_direccion" },
             { "data": "coor_tel_celular" },
-            { "data": "coor_accion" }
+            { "data": "lide_nombre_completo" }
         ],
         "order": [
             [0, 'asc']
@@ -1964,4 +1964,33 @@ function mostrarDatosCoordinador(modal) {
         default:
             break;
     }
+}
+
+function eliminarSimpatizanteIne(simpine_id) {
+    console.log("eliminarSimpatizanteIne: " + simpine_id);
+    $.ajax({
+        url: './ra.view/EliminarSimpatizanteIneView.php',
+        dataType: 'json',
+        type: 'post',
+        data: {
+            simpine_id: simpine_id
+        },
+        success: function(data) {
+            console.log(data);
+            if (data.sucess == true) {
+                //console.log("Fue correcto");
+                //guardarDatosSimpatizante(mdl_localidad, mdl_seccion, mdl_cp, mdl_directivo, mdl_lider, mdl_coordinador, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_tel_celular, mdl_comentarios);
+                swal("Éxito", "El zimpatizante fue eliminado correctamente.", "success")
+                    .then((confirm) => {
+                        if (confirm) {
+                            //$(".bd-nuevo-director-modal-lg").modal('hide');
+                            window.location.reload();
+                            //mostrarTablaAfiliados();
+                        }
+                    });
+            } else {
+                swal("Advertencia", "Existen problemas de conexión. \nFavor de intentarlo mas tarde", "warning");
+            }
+        }
+    });
 }
