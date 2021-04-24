@@ -108,22 +108,29 @@
             <h3>Simpatizante</h3>
           <div>
         </div>
-        <table class="table table-bordered table-condense table-hover table-striped dataTable no-footer dtr-inline" id="table_nuestros_simpatizante">
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Sección</th>
-              <th scope="col">Dirección</th>
-              <th scope="col">Telefono</th>
-              <th scope="col">Coordinador</th>
-              <th scope="col">Lider</th>
-              <th scope="col">Acción</th>
-            </tr>
-          </thead>
-          <tbody id="tbody_simpatizantes">
-          </tbody>
-        </table>
+        <div class="row">
+    			<div class="col-md-12" align="center">
+            <table class="table table-bordered table-condense table-hover table-striped dataTable no-footer dtr-inline" id="table_nuestros_simpatizante" style="width: 140%; margin-left: -25%;">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Genero</th>
+                  <th scope="col">Sección</th>
+                  <th scope="col">Dirección</th>
+                  <th scope="col">Telefono</th>
+                  <th scope="col">En comite</th>
+                  <th scope="col">Coordinador</th>
+                  <th scope="col">Lider</th>
+                  <th scope="col">Directivo</th>
+                  <th scope="col">Acción</th>
+                </tr>
+              </thead>
+              <tbody id="tbody_simpatizantes">
+              </tbody>
+            </table>
+          <div>
+        </div>
     	</div>
     </section>
     <br><br>

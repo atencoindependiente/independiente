@@ -37,5 +37,20 @@ class ControllerSimpatizante {
         $dao = new SimpatizanteDaoImpl();
         $dao->eliminarSimpatizante($mdl_simpine_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento);
     }
+
+    function primerComiteSimpatizante($simp_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento){
+        $dao = new SimpatizanteDaoImpl();
+        $dao->primerComiteSimpatizante($simp_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento);
+    }
+
+    function actualizarGeneroMasculinoView($simp_id){
+        $dao = new SimpatizanteDaoImpl();
+        $dao->actualizarGeneroMasculinoView($simp_id);
+    }
+
+    function actualizarGeneroFemeninoView($simp_id){
+        $dao = new SimpatizanteDaoImpl();
+        $dao->actualizarGeneroFemeninoView($simp_id);
+    }
 }
 ?>

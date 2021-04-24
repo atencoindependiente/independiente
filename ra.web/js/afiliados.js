@@ -1107,13 +1107,14 @@ function guardarDatosDirectivo(mdl_localidad, mdl_seccion, mdl_cp, mdl_nombre, m
                     .then((confirm) => {
                         if (confirm) {
                             $(".bd-nuevo-director-modal-lg").modal('hide');
-                            window.location.reload();
+                            //window.location.reload();
                             //mostrarTablaAfiliados();
+                            mostrarTablaDirectivos();
                         }
                     });
             } else {
                 //console.log("Fue incorrecto");
-                swal("Advertencia", "Existen problemas de conexión. \nFavor de intentarlo mas tarde", "warning");
+                swal("Advertencia", "Existen problemas de conexión 1. \nFavor de intentarlo mas tarde", "warning");
             }
         }
     });
@@ -1144,13 +1145,14 @@ function guardarDatosLider(mdl_localidad, mdl_seccion, mdl_cp, mdl_directivo, md
                     .then((confirm) => {
                         if (confirm) {
                             $(".bd-nuevo-lider-modal-lg").modal('hide');
-                            window.location.reload();
+                            //window.location.reload();
                             //mostrarTablaAfiliados();
+                            mostrarTablaLideres();
                         }
                     });
             } else {
                 //console.log("Fue incorrecto");
-                swal("Advertencia", "Existen problemas de conexión. \nFavor de intentarlo mas tarde", "warning");
+                swal("Advertencia", "Existen problemas de conexión 2. \nFavor de intentarlo mas tarde", "warning");
             }
         }
     });
@@ -1182,13 +1184,14 @@ function guardarDatosCoordinador(mdl_localidad, mdl_seccion, mdl_cp, mdl_directi
                     .then((confirm) => {
                         if (confirm) {
                             $(".bd-nuevo-coordinador-modal-lg").modal('hide');
-                            window.location.reload();
+                            //window.location.reload();
                             //mostrarTablaAfiliados();
+                            mostrarTablaCoordinadores();
                         }
                     });
             } else {
                 //console.log("Fue incorrecto");
-                swal("Advertencia", "Existen problemas de conexión. \nFavor de intentarlo mas tarde", "warning");
+                swal("Advertencia", "Existen problemas de conexión 3. \nFavor de intentarlo mas tarde", "warning");
             }
         }
     });
@@ -1221,13 +1224,15 @@ function guardarDatosSimpatizante(mdl_localidad, mdl_seccion, mdl_cp, mdl_direct
                     .then((confirm) => {
                         if (confirm) {
                             $(".bd-nuevo-coordinador-modal-lg").modal('hide');
-                            window.location.reload();
+                            //window.location.reload();
                             //mostrarTablaAfiliados();
+                            mostrarTablaSimpatizantes();
+                            mostrarTablaSimpatizantesIne();
                         }
                     });
             } else {
                 //console.log("Fue incorrecto");
-                swal("Advertencia", "Existen problemas de conexión. \nFavor de intentarlo mas tarde", "warning");
+                swal("Advertencia", "Existen problemas de conexión 4. \nFavor de intentarlo mas tarde", "warning");
             }
         }
     });
@@ -1268,7 +1273,7 @@ function guardarDatosSimpatizanteIne(mdl_simpine_id, mdl_localidad, mdl_seccion,
                 //    });
             } else {
                 //console.log("Fue incorrecto");
-                swal("Advertencia", "Existen problemas de conexión. \nFavor de intentarlo mas tarde", "warning");
+                swal("Advertencia", "Existen problemas de conexión 5. \nFavor de intentarlo mas tarde", "warning");
             }
         }
     });
@@ -1451,11 +1456,14 @@ function mostrarTablaSimpatizantes() {
         "columns": [
             { "data": "simp_id" },
             { "data": "simp_nombre_completo" },
+            { "data": "simp_genero" },
             { "data": "simp_seccion" },
             { "data": "simp_direccion" },
             { "data": "simp_tel_celular" },
+            { "data": "simp_en_comite" },
             { "data": "coor_nombre_completo" },
             { "data": "lide_nombre_completo" },
+            { "data": "dire_nombre_completo" },
             { "data": "simp_accion" }
         ],
         "order": [
@@ -1967,7 +1975,7 @@ function mostrarDatosCoordinador(modal) {
 }
 
 function eliminarSimpatizanteIne(simpine_id) {
-    console.log("eliminarSimpatizanteIne: " + simpine_id);
+    //console.log("eliminarSimpatizanteIne: " + simpine_id);
     $.ajax({
         url: './ra.view/EliminarSimpatizanteIneView.php',
         dataType: 'json',
@@ -1976,20 +1984,115 @@ function eliminarSimpatizanteIne(simpine_id) {
             simpine_id: simpine_id
         },
         success: function(data) {
-            console.log(data);
+            //console.log(data);
             if (data.sucess == true) {
                 //console.log("Fue correcto");
                 //guardarDatosSimpatizante(mdl_localidad, mdl_seccion, mdl_cp, mdl_directivo, mdl_lider, mdl_coordinador, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_tel_celular, mdl_comentarios);
-                swal("Éxito", "El zimpatizante fue eliminado correctamente.", "success")
+                swal("Éxito", "El Simpatizante fue eliminado correctamente.", "success")
                     .then((confirm) => {
                         if (confirm) {
                             //$(".bd-nuevo-director-modal-lg").modal('hide');
-                            window.location.reload();
+                            //window.location.reload();
                             //mostrarTablaAfiliados();
+                            mostrarTablaSimpatizantes();
+                            mostrarTablaSimpatizantesIne();
                         }
                     });
             } else {
-                swal("Advertencia", "Existen problemas de conexión. \nFavor de intentarlo mas tarde", "warning");
+                swal("Advertencia", "Existen problemas de conexión 6. \nFavor de intentarlo mas tarde", "warning");
+            }
+        }
+    });
+}
+
+function btnEstaEnComite(simp_id) {
+    //console.log("btnEstaEnComite: " + simp_id);
+    $.ajax({
+        url: './ra.view/PrimerComiteSimpatizanteView.php',
+        dataType: 'json',
+        type: 'post',
+        data: {
+            simp_id: simp_id
+        },
+        success: function(data) {
+            //console.log(data);
+            if (data.sucess == true) {
+                //console.log("Fue correcto");
+                //guardarDatosSimpatizante(mdl_localidad, mdl_seccion, mdl_cp, mdl_directivo, mdl_lider, mdl_coordinador, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_tel_celular, mdl_comentarios);
+                swal("Éxito", "El Simpatizante esta actualizado en un comite.", "success")
+                    .then((confirm) => {
+                        if (confirm) {
+                            //$(".bd-nuevo-director-modal-lg").modal('hide');
+                            //window.location.reload();
+                            //mostrarTablaAfiliados();
+                            mostrarTablaSimpatizantes();
+                            mostrarTablaSimpatizantesIne();
+                        }
+                    });
+            } else {
+                swal("Advertencia", "Existen problemas de conexión 7. \nFavor de intentarlo mas tarde", "warning");
+            }
+        }
+    });
+}
+
+function btnActualizarGeneroMasculino(simp_id) {
+    //console.log("btnActualizaGeneroMasculino: " + simp_id);
+    $.ajax({
+        url: './ra.view/ActualizarGeneroMasculinoView.php',
+        dataType: 'json',
+        type: 'post',
+        data: {
+            simp_id: simp_id
+        },
+        success: function(data) {
+            //console.log(data);
+            if (data.sucess == true) {
+                //console.log("Fue correcto");
+                //guardarDatosSimpatizante(mdl_localidad, mdl_seccion, mdl_cp, mdl_directivo, mdl_lider, mdl_coordinador, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_tel_celular, mdl_comentarios);
+                swal("Éxito", "Se actualizo correctamente el género del Simpatizante.", "success")
+                    .then((confirm) => {
+                        if (confirm) {
+                            //$(".bd-nuevo-director-modal-lg").modal('hide');
+                            //window.location.reload();
+                            //mostrarTablaAfiliados();
+                            mostrarTablaSimpatizantes();
+                            mostrarTablaSimpatizantesIne();
+                        }
+                    });
+            } else {
+                swal("Advertencia", "Existen problemas de conexión 8. \nFavor de intentarlo mas tarde", "warning");
+            }
+        }
+    });
+}
+
+function btnActualizarGeneroFemenino(simp_id) {
+    //console.log("btnActualizaGeneroFemenino: " + simp_id);
+    $.ajax({
+        url: './ra.view/ActualizarGeneroFemeninoView.php',
+        dataType: 'json',
+        type: 'post',
+        data: {
+            simp_id: simp_id
+        },
+        success: function(data) {
+            //console.log(data);
+            if (data.sucess == true) {
+                //console.log("Fue correcto");
+                //guardarDatosSimpatizante(mdl_localidad, mdl_seccion, mdl_cp, mdl_directivo, mdl_lider, mdl_coordinador, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_tel_celular, mdl_comentarios);
+                swal("Éxito", "Se actualizo correctamente el género del Simpatizante.", "success")
+                    .then((confirm) => {
+                        if (confirm) {
+                            //$(".bd-nuevo-director-modal-lg").modal('hide');
+                            //window.location.reload();
+                            //mostrarTablaAfiliados();
+                            mostrarTablaSimpatizantes();
+                            mostrarTablaSimpatizantesIne();
+                        }
+                    });
+            } else {
+                swal("Advertencia", "Existen problemas de conexión 9. \nFavor de intentarlo mas tarde", "warning");
             }
         }
     });

@@ -81,22 +81,48 @@ class SimpatizanteDaoImpl implements ISimpatizanteDAO{
           while (($fila = mysqli_fetch_array($result)) != NULL) {
               $simp_id = $fila['simp_id'];
               $simp_nombre_completo = preg_replace('/[\x00-\x1F]/', '\n', addslashes($fila['simp_nombre_completo']));
+              if($fila['simp_genero']==='DEFAULT'){
+                $simp_genero = 'Asignar';
+              }else{
+                $simp_genero =$fila['simp_genero'];
+              }
               $simp_seccion = $fila['simp_seccion'];
               $simp_direccion = preg_replace('/[\x00-\x1F]/', '\n', addslashes($fila['simp_direccion']));
               $simp_tel_celular = $fila['simp_tel_celular'];
+              if($fila['simp_comite']==='DEFAULT'){
+                $simp_en_comite = 'Sin comite';
+              }else{
+                $simp_en_comite =$fila['simp_comite'];
+              }
               $coor_nombre_completo = $fila['coor_nombre_completo'];
               $lide_nombre_completo = $fila['lide_nombre_completo'];
+              $dire_nombre_completo = $fila['dire_nombre_completo'];
+
+              if($fila['simp_genero']==='DEFAULT'){
+                $btn_genero=str_replace('simp_id', $fila['simp_id'], $botones->getBotonGeneroMasculinoSimpatizante()).' '.str_replace('simp_id', $fila['simp_id'], $botones->getBotonGeneroFemeninoSimpatizante());
+              }else{
+                $btn_genero='';
+              }
+              if($fila['simp_comite']==='DEFAULT'){
+                $btn_comite=str_replace('simp_id', $fila['simp_id'], $botones->getBotonComiteSimpatizante());
+              }else{
+                $btn_comite=$botones->getBotonComiteSimpatizanteVisitado();
+              }
+              
               //$boton_accion= str_replace('simp_id', $fila['simp_id'], $botones->getBotonEditarSimpatizante());
-              $boton_accion= "Sin Acción";
+              $boton_accion=$btn_genero." ".$btn_comite;
 
               $simp[] = array(
                             'simp_id' => $simp_id,
                             'simp_nombre_completo' => $simp_nombre_completo,
+                            'simp_genero' => $simp_genero,
                             'simp_seccion' => $simp_seccion,
                             'simp_direccion' => $simp_direccion,
                             'simp_tel_celular' => $simp_tel_celular,
+                            'simp_en_comite' => $simp_en_comite,
                             'coor_nombre_completo' => $coor_nombre_completo,
                             'lide_nombre_completo' => $lide_nombre_completo,
+                            'dire_nombre_completo' => $dire_nombre_completo,
                             'simp_accion' => $boton_accion
                           );
           }
@@ -217,6 +243,48 @@ class SimpatizanteDaoImpl implements ISimpatizanteDAO{
       $datosDB = new DatosBD();
       $connect = $datosDB->connect();
       $query = "UPDATE simpatizante_ine SET simpine_visible=0, simpine_fecha_movimiento='".$fecha_movimiento."', simpine_motivo_movimiento='".$motivo_movimiento."', simpine_fk_usuario_movimiento='".$usuario_movimiento."' WHERE simpine_id='".$mdl_simpine_id."'";
+      $result=mysqli_query($connect, $query);
+        if ($result){
+          $arrayResult=array('sucess'=>true);
+        }else{
+          $arrayResult=array('sucess'=>$result);
+        }
+      echo json_encode($arrayResult);
+      $connect->close();
+    }
+
+    function primerComiteSimpatizante($simp_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento){
+      $datosDB = new DatosBD();
+      $connect = $datosDB->connect();
+      $query = "UPDATE simpatizante SET simp_comite='Visitado', simp_fecha_movimiento='".$fecha_movimiento."', simp_motivo_movimiento='".$motivo_movimiento."', simp_fk_usuario_movimiento='".$usuario_movimiento."' WHERE simp_id='".$simp_id."'";
+      $result=mysqli_query($connect, $query);
+        if ($result){
+          $arrayResult=array('sucess'=>true);
+        }else{
+          $arrayResult=array('sucess'=>$result);
+        }
+      echo json_encode($arrayResult);
+      $connect->close();
+    } 
+
+    function actualizarGeneroMasculinoView($simp_id){
+      $datosDB = new DatosBD();
+      $connect = $datosDB->connect();
+      $query = "UPDATE simpatizante SET simp_genero='Masculino' WHERE simp_id='".$simp_id."'";
+      $result=mysqli_query($connect, $query);
+        if ($result){
+          $arrayResult=array('sucess'=>true);
+        }else{
+          $arrayResult=array('sucess'=>$result);
+        }
+      echo json_encode($arrayResult);
+      $connect->close();
+    }
+
+    function actualizarGeneroFemeninoView($simp_id){
+      $datosDB = new DatosBD();
+      $connect = $datosDB->connect();
+      $query = "UPDATE simpatizante SET simp_genero='Femenino' WHERE simp_id='".$simp_id."'";
       $result=mysqli_query($connect, $query);
         if ($result){
           $arrayResult=array('sucess'=>true);
