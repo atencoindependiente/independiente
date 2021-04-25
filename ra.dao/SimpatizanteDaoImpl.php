@@ -94,9 +94,9 @@ class SimpatizanteDaoImpl implements ISimpatizanteDAO{
               }else{
                 $simp_en_comite =$fila['simp_comite'];
               }
-              $coor_nombre_completo = $fila['coor_nombre_completo'];
-              $lide_nombre_completo = $fila['lide_nombre_completo'];
-              $dire_nombre_completo = $fila['dire_nombre_completo'];
+              $coor_nombre_completo = $fila['coor_nombre_completo'].", ".$fila['lide_nombre_completo'].", ".$fila['dire_nombre_completo'];
+              //$lide_nombre_completo = $fila['lide_nombre_completo'];
+              //$dire_nombre_completo = $fila['dire_nombre_completo'];
 
               if($fila['simp_genero']==='DEFAULT'){
                 $btn_genero=str_replace('simp_id', $fila['simp_id'], $botones->getBotonGeneroMasculinoSimpatizante()).' '.str_replace('simp_id', $fila['simp_id'], $botones->getBotonGeneroFemeninoSimpatizante());
@@ -121,8 +121,8 @@ class SimpatizanteDaoImpl implements ISimpatizanteDAO{
                             'simp_tel_celular' => $simp_tel_celular,
                             'simp_en_comite' => $simp_en_comite,
                             'coor_nombre_completo' => $coor_nombre_completo,
-                            'lide_nombre_completo' => $lide_nombre_completo,
-                            'dire_nombre_completo' => $dire_nombre_completo,
+                            //'lide_nombre_completo' => $lide_nombre_completo,
+                            //'dire_nombre_completo' => $dire_nombre_completo,
                             'simp_accion' => $boton_accion
                           );
           }

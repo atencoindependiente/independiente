@@ -1462,8 +1462,8 @@ function mostrarTablaSimpatizantes() {
             { "data": "simp_tel_celular" },
             { "data": "simp_en_comite" },
             { "data": "coor_nombre_completo" },
-            { "data": "lide_nombre_completo" },
-            { "data": "dire_nombre_completo" },
+            //{ "data": "lide_nombre_completo" },
+            //{ "data": "dire_nombre_completo" },
             { "data": "simp_accion" }
         ],
         "order": [
@@ -2054,10 +2054,10 @@ function btnActualizarGeneroMasculino(simp_id) {
                     .then((confirm) => {
                         if (confirm) {
                             //$(".bd-nuevo-director-modal-lg").modal('hide');
-                            //window.location.reload();
+                            window.location.reload();
                             //mostrarTablaAfiliados();
-                            mostrarTablaSimpatizantes();
-                            mostrarTablaSimpatizantesIne();
+                            //mostrarTablaSimpatizantes();
+                            //mostrarTablaSimpatizantesIne();
                         }
                     });
             } else {
@@ -2085,10 +2085,10 @@ function btnActualizarGeneroFemenino(simp_id) {
                     .then((confirm) => {
                         if (confirm) {
                             //$(".bd-nuevo-director-modal-lg").modal('hide');
-                            //window.location.reload();
+                            window.location.reload();
                             //mostrarTablaAfiliados();
-                            mostrarTablaSimpatizantes();
-                            mostrarTablaSimpatizantesIne();
+                            //mostrarTablaSimpatizantes();
+                            //mostrarTablaSimpatizantesIne();
                         }
                     });
             } else {
