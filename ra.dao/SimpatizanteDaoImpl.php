@@ -109,8 +109,9 @@ class SimpatizanteDaoImpl implements ISimpatizanteDAO{
                 $btn_comite=$botones->getBotonComiteSimpatizanteVisitado();
               }
               
+              $boton_elimina_simp=str_replace('simp_id', $fila['simp_id'], $botones->getBotonEliminarSimpatizante());
               //$boton_accion= str_replace('simp_id', $fila['simp_id'], $botones->getBotonEditarSimpatizante());
-              $boton_accion=$btn_genero." ".$btn_comite;
+              $boton_accion=$btn_genero." ".$btn_comite." ".$boton_elimina_simp;
 
               $simp[] = array(
                             'simp_id' => $simp_id,
@@ -239,10 +240,24 @@ class SimpatizanteDaoImpl implements ISimpatizanteDAO{
       mysqli_close($connect);
     }
 
-    function eliminarSimpatizante($mdl_simpine_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento){
+    function eliminarSimpatizanteIne($mdl_simpine_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento){
       $datosDB = new DatosBD();
       $connect = $datosDB->connect();
       $query = "UPDATE simpatizante_ine SET simpine_visible=0, simpine_fecha_movimiento='".$fecha_movimiento."', simpine_motivo_movimiento='".$motivo_movimiento."', simpine_fk_usuario_movimiento='".$usuario_movimiento."' WHERE simpine_id='".$mdl_simpine_id."'";
+      $result=mysqli_query($connect, $query);
+        if ($result){
+          $arrayResult=array('sucess'=>true);
+        }else{
+          $arrayResult=array('sucess'=>$result);
+        }
+      echo json_encode($arrayResult);
+      $connect->close();
+    }
+
+    function eliminarSimpatizante($simp_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento){
+      $datosDB = new DatosBD();
+      $connect = $datosDB->connect();
+      $query = "UPDATE simpatizante SET simp_visible=0, simp_fecha_movimiento='".$fecha_movimiento."', simp_motivo_movimiento='".$motivo_movimiento."', simp_fk_usuario_movimiento='".$usuario_movimiento."' WHERE simp_id='".$simp_id."'";
       $result=mysqli_query($connect, $query);
         if ($result){
           $arrayResult=array('sucess'=>true);

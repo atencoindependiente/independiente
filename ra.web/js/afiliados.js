@@ -2005,6 +2005,37 @@ function eliminarSimpatizanteIne(simpine_id) {
     });
 }
 
+function eliminarSimpatizante(simp_id) {
+    //console.log("eliminarSimpatizanteIne: " + simpine_id);
+    $.ajax({
+        url: './ra.view/EliminarSimpatizanteView.php',
+        dataType: 'json',
+        type: 'post',
+        data: {
+            simp_id: simp_id
+        },
+        success: function(data) {
+            //console.log(data);
+            if (data.sucess == true) {
+                //console.log("Fue correcto");
+                //guardarDatosSimpatizante(mdl_localidad, mdl_seccion, mdl_cp, mdl_directivo, mdl_lider, mdl_coordinador, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_tel_celular, mdl_comentarios);
+                swal("Éxito", "El Simpatizante fue eliminado correctamente.", "success")
+                    .then((confirm) => {
+                        if (confirm) {
+                            //$(".bd-nuevo-director-modal-lg").modal('hide');
+                            //window.location.reload();
+                            //mostrarTablaAfiliados();
+                            mostrarTablaSimpatizantes();
+                            mostrarTablaSimpatizantesIne();
+                        }
+                    });
+            } else {
+                swal("Advertencia", "Existen problemas de conexión 6. \nFavor de intentarlo mas tarde", "warning");
+            }
+        }
+    });
+}
+
 function btnEstaEnComite(simp_id) {
     //console.log("btnEstaEnComite: " + simp_id);
     $.ajax({

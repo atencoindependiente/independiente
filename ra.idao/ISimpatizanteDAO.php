@@ -6,7 +6,8 @@ interface ISimpatizanteDAO {
     function mostrarSimpatizante();
     function mostrarSimpatizanteIne();
     function mostrarSimpatizanteEnListaNominal();
-    function eliminarSimpatizante($mdl_simpine_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento);
+    function eliminarSimpatizanteIne($mdl_simpine_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento);
+    function eliminarSimpatizante($simp_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento);
     function primerComiteSimpatizante($simp_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento);
     function actualizarGeneroFemeninoView($simp_id);
     function actualizarGeneroMasculinoView($simp_id);

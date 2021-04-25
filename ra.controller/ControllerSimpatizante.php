@@ -33,9 +33,14 @@ class ControllerSimpatizante {
         $dao->mostrarEditarSimpatizanteIne($simpine_id);
     }
 
-    function eliminarSimpatizante($mdl_simpine_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento){
+    function eliminarSimpatizanteIne($mdl_simpine_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento){
         $dao = new SimpatizanteDaoImpl();
-        $dao->eliminarSimpatizante($mdl_simpine_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento);
+        $dao->eliminarSimpatizanteIne($mdl_simpine_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento);
+    }
+
+    function eliminarSimpatizante($simp_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento){
+        $dao = new SimpatizanteDaoImpl();
+        $dao->eliminarSimpatizante($simp_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento);
     }
 
     function primerComiteSimpatizante($simp_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento){
