@@ -290,6 +290,7 @@
     <?php include("./ra.web/includes/ModalNuevoCoordinador.php");?>
     <?php include("./ra.web/includes/ModalNuevoSimpatizante.php");?>
     <?php include("./ra.web/includes/ModalEditarSimpatizante.php");?>
+    <?php include("./ra.web/includes/ModalEditarSimpatizanteIne.php");?>
     
 </body>
     <script src="./ra.web/js/afiliados.js"></script>

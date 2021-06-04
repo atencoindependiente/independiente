@@ -1,8 +1,8 @@
-<div class="modal fade bd-editar-simpatizante-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-editar-simpatizante-ine-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Ediatar Datos del Simpatizante</h5>
+                <h5 class="modal-title">Ediatar Datos del Simpatizante Ine</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -10,7 +10,7 @@
             <div class="modal-body">
               <div class="row">
                 <div class="col-md-12 text-center">
-					<div class="alert alert-warning alert-dismissable" id="alert_valida_campos_editar_simpatizante">
+					<div class="alert alert-warning alert-dismissable" id="alert_valida_campos_editar_simpatizante_ine">
   						<strong>¡Atención!</strong> Es importante llenar todos los campos.
 					</div>	
 				</div>
@@ -18,13 +18,13 @@
               <div class="row">
                 <div class="col-md-12" align="center">
                   <p>Atenco Independiente</p>
-                  <span id="span_simp_id" style="display:none"></span>
+                  <span id="span_simpine_id" style="display:none"></span>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6" align="center">
                   <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="mdl_editar_simp_en_comite">
+                    <input type="checkbox" class="form-check-input" id="mdl_editar_simpine_en_comite">
                     <label class="form-check-label" for="exampleCheck1">En comité</label>
                   </div>
                 </div>
@@ -32,13 +32,13 @@
                   <label for="for_seccion">Padece alguna discapacidad:</label>
                   <div class="row">
                     <div class="col-md-6" align="center">
-                      <input class="form-check-input" type="radio" name="mdl_editar_discapacidad" id="mdl_editar_discapacidad_si" value="Si">
+                      <input class="form-check-input" type="radio" name="mdl_editar_simpine_discapacidad" id="mdl_editar_simpine_discapacidad" value="Si">
                         <label class="form-check-label" for="mdl_editar_discapacidad1">
                           Si
                         </label>
                     </div>
                     <div class="col-md-6">
-                      <input class="form-check-input" type="radio" name="mdl_editar_discapacidad" id="mdl_editar_discapacidad_no" value="No" checked>
+                      <input class="form-check-input" type="radio" name="mdl_editar_simpine_discapacidad" id="mdl_editar_simpine_discapacidad" value="No" checked>
                         <label class="form-check-label" for="mdl_editar_discapacidad2">
                           No
                         </label>
@@ -50,7 +50,7 @@
               <div class="row">
                 <div class="col-md-3" align="center">Datos del Directivo:</div>
                 <div class="col-md-9">
-                  <select class="form-control" id="mdl_editar_simp_datos_directivo"> 
+                  <select class="form-control" id="mdl_editar_simpine_datos_directivo"> 
                     <!--<option selected value="0">Seleccione</option>-->
                   </select>
                 </div>
@@ -59,7 +59,7 @@
               <div class="row">
                 <div class="col-md-3" align="center">Datos del Lider:</div>
                 <div class="col-md-9">
-                  <select class="form-control" id="mdl_editar_simp_datos_lider"> 
+                  <select class="form-control" id="mdl_editar_simpine_datos_lider"> 
                     <!--<option selected value="0">Seleccione</option>-->
                   </select>
                 </div>
@@ -68,7 +68,7 @@
               <div class="row">
                 <div class="col-md-3" align="center">Datos del Coordinador:</div>
                 <div class="col-md-9">
-                  <select class="form-control" id="mdl_editar_simp_datos_coordinador"> 
+                  <select class="form-control" id="mdl_editar_simpine_datos_coordinador"> 
                     <!--<option selected value="0">Seleccione</option>-->
                   </select>
                 </div>
@@ -77,7 +77,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <label for="for_seccion">Localidad:</label>
-                  <select class="form-control" id="mdl_editar_simp_localidad" onchange="colocaCP(this.value,'EditarSimpatizante');"> 
+                  <select class="form-control" id="mdl_editar_simpine_localidad" onchange="colocaCP(this.value,'EditarSimpatizanteIne');"> 
                     <option selected value="0000">Seleccione</option>
                     <option value="Ejidos de Cambray">Ejidos de Cambray</option> 
                     <option value="San Francisco Acuexcomac">San Francisco Acuexcomac</option> 
@@ -111,12 +111,12 @@
                 <div class="col-md-3">
                   <div class="form-group">
                     <label for="for_cp">Código Postal</label>
-                    <input type="text" class="form-control" id="mdl_editar_simp_cp" disabled>
+                    <input type="text" class="form-control" id="mdl_editar_simpine_cp" disabled>
                   </div>
                 </div>
                 <div class="col-md-3">
                   <label for="for_seccion">Sección:</label>
-                    <input type="text" class="form-control" id="mdl_editar_simp_seccion" disabled>
+                    <input type="text" class="form-control" id="mdl_editar_simpine_seccion" disabled>
                     <!--<select class="form-control" id="mdl_editar_simp_seccion"> 
                     <option selected value="0000">Seleccione</option>
                     <option value="0233">0233</option>
@@ -140,19 +140,19 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="for_nombre">Nombre</label>
-                    <input type="text" class="form-control" id="mdl_editar_simp_nombre" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" disabled>
+                    <input type="text" class="form-control" id="mdl_editar_simpine_nombre" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" disabled>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="for_apaterno">Apellido Paterno</label>
-                    <input type="text" class="form-control" id="mdl_editar_simp_apaterno" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" disabled>
+                    <input type="text" class="form-control" id="mdl_editar_simpine_apaterno" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" disabled>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="for_amaterno">Apellido Materno</label>
-                    <input type="text" class="form-control" id="mdl_editar_simp_amaterno" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" disabled>
+                    <input type="text" class="form-control" id="mdl_editar_simpine_amaterno" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" disabled>
                   </div>
                 </div>
               </div>
@@ -160,7 +160,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="for_direccion">Dirección</label>
-                    <textarea class="form-control" id="mdl_editar_simp_direccion" rows="3" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()"></textarea>
+                    <textarea class="form-control" id="mdl_editar_simpine_direccion" rows="3" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()"></textarea>
                   </div>
                 </div>
               </div>
@@ -168,13 +168,13 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="for_tel_celular">Teléfono Celular</label>
-                    <input type="number" maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control" id="mdl_editar_simp_tel_celular">
+                    <input type="number" maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control" id="mdl_editar_simpine_tel_celular">
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="for_genero">Genero</label>
-                    <select class="form-control" id="mdl_editar_simp_genero"> 
+                    <select class="form-control" id="mdl_editar_simpine_genero"> 
                       <option selected value="0000">Seleccione</option>
                       <option value="Masculino">Masculino</option> 
                       <option value="Femenino">Femenino</option> 
@@ -184,7 +184,7 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="for_edad">Edad</label>
-                    <input type="number" maxlength="2" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control" id="mdl_editar_simp_edad">
+                    <input type="number" maxlength="2" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control" id="mdl_editar_simpine_edad">
                   </div>
                 </div>
               </div>
@@ -192,13 +192,13 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="for_comnetarios">Comentarios:</label>
-                    <textarea class="form-control" id="mdl_editar_simp_comentarios" rows="3" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" disabled></textarea>
+                    <textarea class="form-control" id="mdl_editar_simpine_comentarios" rows="3" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" disabled></textarea>
                   </div>
                 </div>
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" id="btn_guardar_datos_editar_simpatizante">Guardar Datos</button>
+              <button type="button" class="btn btn-primary" id="btn_guardar_datos_editar_simpatizante_ine">Guardar Datos</button>
               <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
             </div>
         </div>

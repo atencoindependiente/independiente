@@ -1,11 +1,11 @@
 <?php
 //error_reporting(5);
-//session_start();
+session_start();
 require_once('../ra.model/Simpatizante.class.php');
 require_once('../ra.controller/ControllerSimpatizante.php');
 date_default_timezone_set("America/Mexico_City");
 
-$mdl_simpine_id = $_POST["mdl_simpine_id"];
+$mdl_simp_id = $_POST["mdl_simp_id"];
 $mdl_nombre = $_POST["mdl_nombre"];
 $mdl_apaterno = $_POST["mdl_apaterno"];
 $mdl_amaterno = $_POST["mdl_amaterno"];
@@ -18,13 +18,17 @@ $mdl_cp = $_POST["mdl_cp"];
 $mdl_directivo = $_POST["mdl_directivo"];
 $mdl_tel_celular = $_POST["mdl_tel_celular"];
 $mdl_comentarios = $_POST["mdl_comentarios"];
+$mdl_genero = $_POST["mdl_genero"];
+$mdl_simp_edad= $_POST["mdl_simp_edad"];
+$mdl_en_comite= $_POST["mdl_en_comite"];
+$mdl_discapacidad = $_POST["mdl_discapacidad"];
 $fecha_movimiento = date("Y-m-d H:i:s");
-$motivo_movimiento="Se edito simpatizante.";
-//$usuario_movimiento = $_SESSION["usuario_id"];
-$usuario_movimiento = 1;
+$motivo_movimiento="Se agrega nuevo simpatizante.";
+$usuario_movimiento = $_SESSION["usuario_id"];
+//$usuario_movimiento = 1;
 
-$simpatizante= new EditarSimpatizanteIne(
-    $mdl_simpine_id,
+$simpatizante= new EditarSimpatizante(
+    $mdl_simp_id,
     $mdl_nombre,
     $mdl_apaterno,
     $mdl_amaterno,
@@ -34,6 +38,10 @@ $simpatizante= new EditarSimpatizanteIne(
     $mdl_cp,
     $mdl_tel_celular,
     $mdl_comentarios,
+    $mdl_genero,
+    $mdl_simp_edad,
+    $mdl_en_comite,
+    $mdl_discapacidad,
     $fecha_movimiento,
     $motivo_movimiento,
     $usuario_movimiento,
@@ -43,6 +51,6 @@ $simpatizante= new EditarSimpatizanteIne(
 );
 
 $controller=new ControllerSimpatizante();
-$controller->editarSimpatizanteIne($simpatizante);
+$controller->editarSimpatizante($simpatizante);
 
 ?>

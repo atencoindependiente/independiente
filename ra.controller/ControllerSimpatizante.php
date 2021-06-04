@@ -23,6 +23,11 @@ class ControllerSimpatizante {
         $dao->editarSimpatizante($simpatizante);
     }
 
+    function editarSimpatizanteIne(EditarSimpatizanteIne $simpatizante){
+        $dao = new SimpatizanteDaoImpl();
+        $dao->editarSimpatizanteIne($simpatizante);
+    }
+
     function mostrarSimpatizanteEnListaNominal(){
         $dao = new SimpatizanteDaoImpl();
         $dao->mostrarSimpatizanteEnListaNominal();
@@ -31,6 +36,11 @@ class ControllerSimpatizante {
     function mostrarEditarSimpatizanteIne($simpine_id){
         $dao = new SimpatizanteDaoImpl();
         $dao->mostrarEditarSimpatizanteIne($simpine_id);
+    }
+
+    function mostrarEditarSimpatizante($simp_id){
+        $dao = new SimpatizanteDaoImpl();
+        $dao->mostrarEditarSimpatizante($simp_id);
     }
 
     function eliminarSimpatizanteIne($mdl_simpine_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento){

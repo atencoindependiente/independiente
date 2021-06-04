@@ -2,6 +2,7 @@
 require_once('../ra.model/Simpatizante.class.php');
 interface ISimpatizanteDAO {    
     function registrarSimpatizante(Simpatizante $simpatizante);
+    function editarSimpatizanteIne(EditarSimpatizanteIne $simpatizante);
     function editarSimpatizante(EditarSimpatizante $simpatizante);
     function mostrarSimpatizante();
     function mostrarSimpatizanteIne();

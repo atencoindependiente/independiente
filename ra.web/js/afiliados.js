@@ -25,6 +25,10 @@ $(document).ready(function() {
     $('#btn_guardar_datos_editar_simpatizante').click(function() {
         validaCamposEditarSimpatizante();
     });
+
+    $('#btn_guardar_datos_editar_simpatizante_ine').click(function() {
+        validaCamposEditarSimpatizanteIne();
+    });
 });
 
 //function mostrarModalAgregarAfiliado() {
@@ -67,6 +71,9 @@ function mostrarModalAgregarCoordinador() {
 
 function mostrarModalAgregarSimpatizante() {
     //console.log("mostrarModalAgregarSimpatizante");
+    $('#mdl_simp_en_comite').prop('checked', false);
+    //$('#mdl_simp_en_comite input[type=checkbox]').removeAttr('checked');
+    //$('#mdl_editar_simp_en_comite input[type=checkbox]').removeAttr('checked');
     vaciaCampos('Simpatizante');
     $("#alert_valida_campos_simpatizante").hide();
     $(".bd-nuevo-director-modal-lg").modal('hide');
@@ -76,19 +83,22 @@ function mostrarModalAgregarSimpatizante() {
     mostrarDatosDirectivos('Simpatizante');
     mostrarDatosLideres('Simpatizante');
     mostrarDatosCoordinador('Simpatizante');
+
 }
 
 function mostrarModalEditarSimpatizanteIne(simpine_id) {
-    vaciaCampos('EditarSimpatizante');
-    $("#alert_valida_campos_editar_simpatizante").hide();
+    vaciaCampos('EditarSimpatizanteIne');
+    $('#mdl_editar_simpine_en_comite').prop('checked', false);
+    $("#alert_valida_campos_editar_simpatizante_ine").hide();
     $(".bd-nuevo-director-modal-lg").modal('hide');
     $(".bd-nuevo-lider-modal-lg").modal('hide');
     $(".bd-nuevo-coordinador-modal-lg").modal('hide');
     $(".bd-nuevo-simpatizante-modal-lg").modal('hide');
-    $(".bd-editar-simpatizante-modal-lg").modal('show');
-    mostrarDatosDirectivos('EditarSimpatizante');
-    mostrarDatosLideres('EditarSimpatizante');
-    mostrarDatosCoordinador('EditarSimpatizante');
+    $(".bd-editar-simpatizante-modal-lg").modal('hide');
+    $(".bd-editar-simpatizante-ine-modal-lg").modal('show');
+    mostrarDatosDirectivos('EditarSimpatizanteIne');
+    mostrarDatosLideres('EditarSimpatizanteIne');
+    mostrarDatosCoordinador('EditarSimpatizanteIne');
     //console.log(simpine_id);
     $.ajax({
         url: "./ra.view/MostrarDatosEditarSimpatizanteIneView.php",
@@ -104,14 +114,84 @@ function mostrarModalEditarSimpatizanteIne(simpine_id) {
             array.forEach(function(simp, index) {
                 //$("#mdl_editar_simp_localidad").val('0000');
                 $("#span_simpine_id").text(simpine_id);
-                $("#mdl_editar_simp_seccion").val(simp.simpine_seccion);
+                $("#mdl_editar_simpine_seccion").val(simp.simpine_seccion);
                 //$("#mdl_editar_simp_directivo").val('0');
-                $("#mdl_editar_simp_nombre").val(simp.simpine_nombre);
-                $("#mdl_editar_simp_apaterno").val(simp.simpine_apaterno);
-                $("#mdl_editar_simp_amaterno").val(simp.simpine_amaterno);
-                $("#mdl_editar_simp_direccion").val(simp.simpine_direccion);
-                $("#mdl_editar_simp_tel_celular").val(simp.simpine_tel_celular);
-                $("#mdl_editar_simp_comentarios").val(simp.simpine_comentario);
+                $("#mdl_editar_simpine_nombre").val(simp.simpine_nombre);
+                $("#mdl_editar_simpine_apaterno").val(simp.simpine_apaterno);
+                $("#mdl_editar_simpine_amaterno").val(simp.simpine_amaterno);
+                $("#mdl_editar_simpine_direccion").val(simp.simpine_direccion);
+                $("#mdl_editar_simpine_tel_celular").val(simp.simpine_tel_celular);
+                $("#mdl_editar_simpine_comentarios").val(simp.simpine_comentario);
+            });
+            //console.log("MostrarDatosEditarSimpatizanteIneView");
+        }
+        //console.log(result.result);
+        /*switch (result.catalogo_success) {
+            case true:
+                var array_catalogo = result.catalogo_result;
+                array_catalogo.forEach(function(catalogo, index) {
+                    $('#' + id_elemento).append("<option value = '" + catalogo.catalogo_id + "'>" + catalogo.catalogo_descripcion + "</option>");
+                });
+                break;
+            case false:
+                alert(result.catalogo_success);
+                break;
+        }*/
+    }).fail(function(error) {
+        swal('¡ADVERTENCIA ERROR1!', 'PROBLEMAS DE CONEXIÓN.', 'warning');
+    });
+}
+
+function mostrarModalEditarSimpatizante(simp_id) {
+    vaciaCampos('EditarSimpatizante');
+    $('#mdl_editar_simp_en_comite').prop('checked', false);
+    $("#alert_valida_campos_editar_simpatizante").hide();
+    $(".bd-nuevo-director-modal-lg").modal('hide');
+    $(".bd-nuevo-lider-modal-lg").modal('hide');
+    $(".bd-nuevo-coordinador-modal-lg").modal('hide');
+    $(".bd-nuevo-simpatizante-modal-lg").modal('hide');
+    $(".bd-editar-simpatizante-modal-lg").modal('show');
+    $(".bd-editar-simpatizante-ine-modal-lg").modal('hide');
+    mostrarDatosDirectivos('EditarSimpatizante');
+    mostrarDatosLideres('EditarSimpatizante');
+    mostrarDatosCoordinador('EditarSimpatizante');
+    //console.log(simpine_id);
+    $.ajax({
+        url: "./ra.view/MostrarDatosEditarSimpatizanteView.php",
+        method: "POST",
+        dataType: 'json',
+        data: {
+            simp_id: simp_id
+        }
+    }).done(function(result) {
+        console.log(result);
+        if (result.success === true) {
+            var array = result.result;
+            array.forEach(function(simp, index) {
+                //$("#mdl_editar_simp_localidad").val('0000');
+                if (simp.simp_comite === 'DEFAULT') {
+                    $('#mdl_editar_simp_en_comite').prop('checked', false);
+                } else {
+                    console.log(simp.simp_comite);
+                    $('#mdl_editar_simp_en_comite').prop('checked', true);
+                }
+
+                $("#span_simp_id").text(simp_id);
+                $("#mdl_editar_simp_datos_directivo").val(simp.simp_fk_directivo);
+                $("#mdl_editar_simp_datos_lider").val(simp.simp_fk_lider);
+                $("#mdl_editar_simp_datos_coordinador").val(simp.simp_fk_coordinador);
+                $("#mdl_editar_simp_seccion").val(simp.simp_seccion);
+                $("#mdl_editar_simp_cp").val(simp.simp_cp);
+                $("#mdl_editar_simp_nombre").val(simp.simp_nombre);
+                $("#mdl_editar_simp_apaterno").val(simp.simp_apaterno);
+                $("#mdl_editar_simp_amaterno").val(simp.simp_amaterno);
+                $("#mdl_editar_simp_localidad").val(simp.simp_localidad);
+                $("#mdl_editar_simp_direccion").val(simp.simp_direccion);
+                $("#mdl_editar_simp_tel_celular").val(simp.simp_tel_celular);
+                $("#mdl_editar_simp_comentarios").val(simp.simp_comentario);
+                $("#mdl_editar_simp_genero").val(simp.simp_genero);
+                $("#mdl_editar_simp_edad").val(simp.simp_edad);
+
             });
             //console.log("MostrarDatosEditarSimpatizanteIneView");
         }
@@ -298,13 +378,25 @@ function validaCamposSimpatizante() {
     let mdl_tel_celular = $("#mdl_simp_tel_celular").val();
     let mdl_comentarios_old = $("#mdl_simp_comentarios").val();
     let mdl_comentarios = mdl_comentarios_old.length == 0 ? 'Sin Comentarios' : mdl_comentarios_old;
+    let mdl_genero = $("#mdl_simp_genero").val();
+    let mdl_simp_edad = $("#mdl_simp_edad").val();
+    let mdl_comite = document.getElementById('mdl_simp_en_comite').checked;
+    if (mdl_comite === true) {
+        var mdl_en_comite = 'Visitado';
+    } else {
+        var mdl_en_comite = 'DEFAULT';
+    }
+    let mdl_discapacidad = $('input:radio[name=mdl_discapacidad]:checked').val();
 
-    if (mdl_localidad === '0000' || mdl_seccion === '0000' || mdl_nombre.length == 0 || mdl_apaterno.length == 0 ||
-        mdl_amaterno.length == 0 || mdl_direccion.length == 0 || mdl_cp.length == 0 || mdl_tel_celular.length == 0) {
+    if (mdl_localidad === '0000' || mdl_genero === '0000' || mdl_simp_edad.length === 0 || mdl_seccion === '0000' ||
+        mdl_nombre.length == 0 || mdl_apaterno.length == 0 || mdl_amaterno.length == 0 || mdl_direccion.length == 0 ||
+        mdl_cp.length == 0 || mdl_tel_celular.length == 0) {
         swal("¡IMPORTANTE!", "Es necesario llenar todos los campos del formulario.", "warning");
     } else {
         //console.log(mdl_localidad);
         //console.log(mdl_seccion);
+        //console.log(mdl_genero);
+        //console.log(mdl_simp_edad);
         //console.log(mdl_nombre);
         //console.log(mdl_apaterno);
         //console.log(mdl_amaterno);
@@ -315,7 +407,9 @@ function validaCamposSimpatizante() {
         //console.log(mdl_directivo);
         //console.log(mdl_lider);
         //console.log(mdl_coordinador);
-        guardarDatosSimpatizante(mdl_localidad, mdl_seccion, mdl_cp, mdl_directivo, mdl_lider, mdl_coordinador, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_tel_celular, mdl_comentarios);
+        //console.log(mdl_en_comite);
+        //console.log(mdl_discapacidad);
+        guardarDatosSimpatizante(mdl_localidad, mdl_seccion, mdl_cp, mdl_directivo, mdl_lider, mdl_coordinador, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_tel_celular, mdl_comentarios, mdl_genero, mdl_simp_edad, mdl_en_comite, mdl_discapacidad);
     }
 }
 
@@ -335,11 +429,23 @@ function validaCamposEditarSimpatizante() {
     let mdl_comentarios_old = $("#mdl_editar_simp_comentarios").val();
     let mdl_comentarios = mdl_comentarios_old.length == 0 ? 'Sin Comentarios' : mdl_comentarios_old;
 
-    if (mdl_localidad === '0000' || mdl_seccion === '0000' || mdl_nombre.length == 0 || mdl_apaterno.length == 0 ||
+    let mdl_genero = $("#mdl_editar_simp_genero").val();
+    let mdl_simp_edad = $("#mdl_editar_simp_edad").val();
+    let mdl_comite = document.getElementById('mdl_editar_simp_en_comite').checked;
+    if (mdl_comite === true) {
+        var mdl_editado_en_comite = 'Visitado';
+    } else {
+        var mdl_editado_en_comite = 'DEFAULT';
+    }
+    let mdl_discapacidad = $('input:radio[name=mdl_editar_discapacidad]:checked').val();
+
+
+    if (mdl_localidad === '0000' || mdl_genero === '0000' || mdl_simp_edad.length === 0 || mdl_seccion === '0000' ||
+        mdl_nombre.length == 0 || mdl_apaterno.length == 0 ||
         mdl_amaterno.length == 0 || mdl_direccion.length == 0 || mdl_cp.length == 0 || mdl_tel_celular.length == 0) {
         swal("¡IMPORTANTE!", "Es necesario llenar todos los campos del formulario.", "warning");
     } else {
-        let mdl_simpine_id = $("#span_simpine_id").text();
+        let mdl_simp_id = $("#span_simp_id").text();
         console.log(mdl_localidad);
         console.log(mdl_seccion);
         console.log(mdl_nombre);
@@ -352,8 +458,66 @@ function validaCamposEditarSimpatizante() {
         console.log(mdl_directivo);
         console.log(mdl_lider);
         console.log(mdl_coordinador);
-        console.log(mdl_simpine_id);
-        guardarDatosSimpatizanteIne(mdl_simpine_id, mdl_localidad, mdl_seccion, mdl_cp, mdl_directivo, mdl_lider, mdl_coordinador, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_tel_celular, mdl_comentarios);
+        console.log(mdl_simp_id);
+        console.log(mdl_genero);
+        console.log(mdl_simp_edad);
+        console.log(mdl_editado_en_comite);
+        console.log(mdl_discapacidad);
+        guardarDatosEditarSimpatizante(mdl_simp_id, mdl_localidad, mdl_seccion, mdl_cp, mdl_directivo, mdl_lider, mdl_coordinador, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_tel_celular, mdl_comentarios, mdl_genero, mdl_simp_edad, mdl_editado_en_comite, mdl_discapacidad);
+    }
+}
+
+function validaCamposEditarSimpatizanteIne() {
+    //console.log("btn_guardar_datos_simpatizante");
+    let mdl_localidad = $("#mdl_editar_simpine_localidad").val();
+    let mdl_seccion = $("#mdl_editar_simpine_seccion").val();
+    let mdl_cp = $("#mdl_editar_simpine_cp").val();
+    let mdl_directivo = $("#mdl_editar_simpine_datos_directivo").val();
+    let mdl_lider = $("#mdl_editar_simpine_datos_lider").val();
+    let mdl_coordinador = $("#mdl_editar_simpine_datos_coordinador").val();
+    let mdl_nombre = $("#mdl_editar_simpine_nombre").val();
+    let mdl_apaterno = $("#mdl_editar_simpine_apaterno").val();
+    let mdl_amaterno = $("#mdl_editar_simpine_amaterno").val();
+    let mdl_direccion = $("#mdl_editar_simpine_direccion").val();
+    let mdl_tel_celular = $("#mdl_editar_simpine_tel_celular").val();
+    let mdl_comentarios_old = $("#mdl_editar_simpine_comentarios").val();
+    let mdl_comentarios = mdl_comentarios_old.length == 0 ? 'Sin Comentarios' : mdl_comentarios_old;
+
+    let mdl_genero = $("#mdl_editar_simpine_genero").val();
+    let mdl_simp_edad = $("#mdl_editar_simpine_edad").val();
+    let mdl_comite = document.getElementById('mdl_editar_simpine_en_comite').checked;
+    if (mdl_comite === true) {
+        var mdl_editado_en_comite = 'Visitado';
+    } else {
+        var mdl_editado_en_comite = 'DEFAULT';
+    }
+    let mdl_discapacidad = $('input:radio[name=mdl_editar_simpine_discapacidad]:checked').val();
+
+
+    if (mdl_localidad === '0000' || mdl_genero === '0000' || mdl_simp_edad.length === 0 || mdl_seccion === '0000' ||
+        mdl_nombre.length == 0 || mdl_apaterno.length == 0 ||
+        mdl_amaterno.length == 0 || mdl_direccion.length == 0 || mdl_cp.length == 0 || mdl_tel_celular.length == 0) {
+        swal("¡IMPORTANTE!", "Es necesario llenar todos los campos del formulario.", "warning");
+    } else {
+        let mdl_simpine_id = $("#span_simpine_id").text();
+        //console.log(mdl_localidad);
+        //console.log(mdl_seccion);
+        //console.log(mdl_nombre);
+        //console.log(mdl_apaterno);
+        //console.log(mdl_amaterno);
+        //console.log(mdl_direccion);
+        //console.log(mdl_cp);
+        //console.log(mdl_tel_celular);
+        //console.log(mdl_comentarios);
+        //console.log(mdl_directivo);
+        //console.log(mdl_lider);
+        //console.log(mdl_coordinador);
+        //console.log(mdl_simpine_id);
+        //console.log(mdl_genero);
+        //console.log(mdl_simp_edad);
+        //console.log(mdl_editado_en_comite);
+        //console.log(mdl_discapacidad);
+        guardarDatosSimpatizanteIne(mdl_simpine_id, mdl_localidad, mdl_seccion, mdl_cp, mdl_directivo, mdl_lider, mdl_coordinador, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_tel_celular, mdl_comentarios, mdl_genero, mdl_simp_edad, mdl_editado_en_comite, mdl_discapacidad);
     }
 }
 
@@ -1075,6 +1239,149 @@ function colocaCP(localidad, tipo_modal) {
                     break;
             }
             break;
+        case 'EditarSimpatizanteIne':
+            switch (localidad) {
+                case "Ejidos de Cambray":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56300');
+                    break;
+                case "San Francisco Acuexcomac":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56300');
+                    break;
+                case "San Salvador Atenco":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56300');
+                    break;
+                case "Santa Gertrudis":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56300');
+                    break;
+                case "La Noria":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56303');
+                    break;
+                case "San Lazarito":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56303');
+                    break;
+                case "Ejidal San Salvador":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56303');
+                    break;
+                case "Hacienda la Grande Fracción Uno":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56303');
+                    break;
+                case "Zapotlán":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56304');
+                    break;
+                case "La Pastoría":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56304');
+                    break;
+                case "Francisco I Madero":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56305');
+                    break;
+                case "Ejido San Salvador Acuexcomac (Ejido la PurIsima)":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56305');
+                    break;
+                case "El Amanal":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56305');
+                    break;
+                case "Ejido la Magdalena Panoaya":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56305');
+                    break;
+                case "Ejido de San Cristóbal Nexquipayac":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56306');
+                    break;
+                case "Los Hornos (El Presidio)":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56306');
+                    break;
+                case "Nueva Santa Rosa":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56310');
+                    break;
+                case "Nueva Santa Rosa-Granjas el Arenal":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56310');
+                    break;
+                case "El Salado":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56310');
+                    break;
+                case "Santa Isabel Ixtapan":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56314');
+                    break;
+                case "Nezahualcoyotl - Ixtapan":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56314');
+                    break;
+                case "San Cristóbal Nexquipayac":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56315');
+                    break;
+                case "Granjas la Purísima":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56315');
+                    break;
+                case "Las Salinas":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56315');
+                    break;
+                case "Benito Quezada":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56315');
+                    break;
+                case "Chilileco":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56315');
+                    break;
+                case "La Purisima-La Purisima Norte":
+                    //console.log(localidad);
+                    $("#mdl_editar_simpine_cp").val("");
+                    $("#mdl_editar_simpine_cp").val('56315');
+                    break;
+                default:
+                    //console.log("Sin de localidad");
+                    $("#mdl_editar_simpine_cp").val("");
+                    break;
+            }
+            break;
         default:
             break;
     }
@@ -1197,7 +1504,7 @@ function guardarDatosCoordinador(mdl_localidad, mdl_seccion, mdl_cp, mdl_directi
     });
 }
 
-function guardarDatosSimpatizante(mdl_localidad, mdl_seccion, mdl_cp, mdl_directivo, mdl_lider, mdl_coordinador, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_tel_celular, mdl_comentarios) {
+function guardarDatosSimpatizante(mdl_localidad, mdl_seccion, mdl_cp, mdl_directivo, mdl_lider, mdl_coordinador, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_tel_celular, mdl_comentarios, mdl_genero, mdl_simp_edad, mdl_en_comite, mdl_discapacidad) {
     $.ajax({
         url: './ra.view/RegistrarNuevoSimpatizanteView.php',
         dataType: 'json',
@@ -1214,7 +1521,11 @@ function guardarDatosSimpatizante(mdl_localidad, mdl_seccion, mdl_cp, mdl_direct
             mdl_amaterno: mdl_amaterno,
             mdl_direccion: mdl_direccion,
             mdl_tel_celular: mdl_tel_celular,
-            mdl_comentarios: mdl_comentarios
+            mdl_comentarios: mdl_comentarios,
+            mdl_genero: mdl_genero,
+            mdl_simp_edad: mdl_simp_edad,
+            mdl_en_comite: mdl_en_comite,
+            mdl_discapacidad: mdl_discapacidad
         },
         success: function(data) {
             //console.log(data);
@@ -1223,11 +1534,11 @@ function guardarDatosSimpatizante(mdl_localidad, mdl_seccion, mdl_cp, mdl_direct
                 swal("Éxito", "Gracias por afiliarse con nosotros.\nSus datos están seguros.", "success")
                     .then((confirm) => {
                         if (confirm) {
-                            $(".bd-nuevo-coordinador-modal-lg").modal('hide');
-                            //window.location.reload();
+                            $(".bd-editar-simpatizante-ine-modal-lg").modal('hide');
+                            window.location.reload();
                             //mostrarTablaAfiliados();
-                            mostrarTablaSimpatizantes();
-                            mostrarTablaSimpatizantesIne();
+                            //mostrarTablaSimpatizantes();
+                            //mostrarTablaSimpatizantesIne();
                         }
                     });
             } else {
@@ -1238,7 +1549,7 @@ function guardarDatosSimpatizante(mdl_localidad, mdl_seccion, mdl_cp, mdl_direct
     });
 }
 
-function guardarDatosSimpatizanteIne(mdl_simpine_id, mdl_localidad, mdl_seccion, mdl_cp, mdl_directivo, mdl_lider, mdl_coordinador, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_tel_celular, mdl_comentarios) {
+function guardarDatosSimpatizanteIne(mdl_simpine_id, mdl_localidad, mdl_seccion, mdl_cp, mdl_directivo, mdl_lider, mdl_coordinador, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_tel_celular, mdl_comentarios, mdl_genero, mdl_simp_edad, mdl_editado_en_comite, mdl_discapacidad) {
     $.ajax({
         url: './ra.view/EditarSimpatizanteIneView.php',
         dataType: 'json',
@@ -1262,7 +1573,12 @@ function guardarDatosSimpatizanteIne(mdl_simpine_id, mdl_localidad, mdl_seccion,
             //console.log(data);
             if (data.sucess == true) {
                 console.log("Fue correcto");
-                guardarDatosSimpatizante(mdl_localidad, mdl_seccion, mdl_cp, mdl_directivo, mdl_lider, mdl_coordinador, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_tel_celular, mdl_comentarios);
+                guardarDatosSimpatizante(mdl_localidad, mdl_seccion,
+                    mdl_cp, mdl_directivo, mdl_lider,
+                    mdl_coordinador, mdl_nombre, mdl_apaterno,
+                    mdl_amaterno, mdl_direccion, mdl_tel_celular,
+                    mdl_comentarios, mdl_genero, mdl_simp_edad,
+                    mdl_editado_en_comite, mdl_discapacidad);
                 //swal("Éxito", "Gracias por afiliarse con nosotros.\nSus datos están seguros.", "success")
                 //    .then((confirm) => {
                 //        if (confirm) {
@@ -1274,6 +1590,52 @@ function guardarDatosSimpatizanteIne(mdl_simpine_id, mdl_localidad, mdl_seccion,
             } else {
                 //console.log("Fue incorrecto");
                 swal("Advertencia", "Existen problemas de conexión 5. \nFavor de intentarlo mas tarde", "warning");
+            }
+        }
+    });
+}
+
+function guardarDatosEditarSimpatizante(mdl_simp_id, mdl_localidad, mdl_seccion, mdl_cp, mdl_directivo, mdl_lider, mdl_coordinador, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_tel_celular, mdl_comentarios, mdl_genero, mdl_simp_edad, mdl_editado_en_comite, mdl_discapacidad) {
+    $.ajax({
+        url: './ra.view/RegistrarEdicionSimpatizanteView.php',
+        dataType: 'json',
+        type: 'post',
+        data: {
+            mdl_simp_id: mdl_simp_id,
+            mdl_localidad: mdl_localidad,
+            mdl_seccion: mdl_seccion,
+            mdl_cp: mdl_cp,
+            mdl_directivo: mdl_directivo,
+            mdl_lider: mdl_lider,
+            mdl_coordinador: mdl_coordinador,
+            mdl_nombre: mdl_nombre,
+            mdl_apaterno: mdl_apaterno,
+            mdl_amaterno: mdl_amaterno,
+            mdl_direccion: mdl_direccion,
+            mdl_tel_celular: mdl_tel_celular,
+            mdl_comentarios: mdl_comentarios,
+            mdl_genero: mdl_genero,
+            mdl_simp_edad: mdl_simp_edad,
+            mdl_en_comite: mdl_editado_en_comite,
+            mdl_discapacidad: mdl_discapacidad
+        },
+        success: function(data) {
+            //console.log(data);
+            if (data.sucess == true) {
+                //console.log("Fue correcto");
+                swal("Éxito", "Gracias por afiliarse con nosotros.\nSus datos están seguros.", "success")
+                    .then((confirm) => {
+                        if (confirm) {
+                            $(".bd-editar-simpatizante-modal-lg").modal('hide');
+                            window.location.reload();
+                            //mostrarTablaAfiliados();
+                            //mostrarTablaSimpatizantes();
+                            //mostrarTablaSimpatizantesIne();
+                        }
+                    });
+            } else {
+                //console.log("Fue incorrecto");
+                swal("Advertencia", "Existen problemas de conexión 4. \nFavor de intentarlo mas tarde", "warning");
             }
         }
     });
@@ -1669,6 +2031,18 @@ function vaciaCampos(tipo) {
             $("#mdl_editar_simp_comentarios").val('');
             $("#span_simpine_id").text('');
             break;
+        case 'EditarSimpatizanteIne':
+            $("#mdl_editar_simpine_localidad").val('0000');
+            $("#mdl_editar_simpine_cp").val('');
+            $("#mdl_editar_simpine_seccion").val('');
+            $("#mdl_editar_simpine_nombre").val('');
+            $("#mdl_editar_simpine_apaterno").val('');
+            $("#mdl_editar_simpine_amaterno").val('');
+            $("#mdl_editar_simpine_direccion").val('');
+            $("#mdl_editar_simpine_tel_celular").val('');
+            $("#mdl_editar_simpine_comentarios").val('');
+            $("#span_simpine_id").text('');
+            break;
         default:
             break;
     }
@@ -1800,6 +2174,37 @@ function mostrarDatosDirectivos(modal) {
                 swal('¡ADVERTENCIA ERROR1!', 'PROBLEMAS DE CONEXIÓN.', 'warning');
             });
             break;
+        case 'EditarSimpatizanteIne':
+            $.ajax({
+                method: "POST",
+                dataType: 'json',
+                url: "./ra.view/MostrarDatosDirectivosView.php"
+            }).done(function(result) {
+                console.log(result.success);
+                if (result.success === true) {
+                    $("#mdl_editar_simpine_datos_directivo").empty();
+                    $('#mdl_editar_simpine_datos_directivo').append("<option value ='1'>Sin directivo</option>");
+                    var array = result.result;
+                    array.forEach(function(directivo, index) {
+                        $('#mdl_editar_simpine_datos_directivo').append("<option value = '" + directivo.dire_id + "'>" + directivo.dire_nombre_completo + "</option>");
+                    });
+                }
+                console.log(result.result);
+                /*switch (result.catalogo_success) {
+                    case true:
+                        var array_catalogo = result.catalogo_result;
+                        array_catalogo.forEach(function(catalogo, index) {
+                            $('#' + id_elemento).append("<option value = '" + catalogo.catalogo_id + "'>" + catalogo.catalogo_descripcion + "</option>");
+                        });
+                        break;
+                    case false:
+                        alert(result.catalogo_success);
+                        break;
+                }*/
+            }).fail(function(error) {
+                swal('¡ADVERTENCIA ERROR1!', 'PROBLEMAS DE CONEXIÓN.', 'warning');
+            });
+            break;
         default:
             break;
     }
@@ -1900,6 +2305,37 @@ function mostrarDatosLideres(modal) {
                 swal('¡ADVERTENCIA ERROR1!', 'PROBLEMAS DE CONEXIÓN.', 'warning');
             });
             break;
+        case 'EditarSimpatizanteIne':
+            $.ajax({
+                method: "POST",
+                dataType: 'json',
+                url: "./ra.view/MostrarDatosLideresView.php"
+            }).done(function(result) {
+                console.log(result.success);
+                if (result.success === true) {
+                    $("#mdl_editar_simpine_datos_lider").empty();
+                    $('#mdl_editar_simpine_datos_lider').append("<option value ='1'>Sin lider</option>");
+                    var array = result.result;
+                    array.forEach(function(lider, index) {
+                        $('#mdl_editar_simpine_datos_lider').append("<option value = '" + lider.lide_id + "'>" + lider.lide_nombre_completo + "</option>");
+                    });
+                }
+                console.log(result.result);
+                /*switch (result.catalogo_success) {
+                    case true:
+                        var array_catalogo = result.catalogo_result;
+                        array_catalogo.forEach(function(catalogo, index) {
+                            $('#' + id_elemento).append("<option value = '" + catalogo.catalogo_id + "'>" + catalogo.catalogo_descripcion + "</option>");
+                        });
+                        break;
+                    case false:
+                        alert(result.catalogo_success);
+                        break;
+                }*/
+            }).fail(function(error) {
+                swal('¡ADVERTENCIA ERROR1!', 'PROBLEMAS DE CONEXIÓN.', 'warning');
+            });
+            break;
         default:
             break;
     }
@@ -1969,6 +2405,37 @@ function mostrarDatosCoordinador(modal) {
                 swal('¡ADVERTENCIA ERROR1!', 'PROBLEMAS DE CONEXIÓN.', 'warning');
             });
             break;
+        case 'EditarSimpatizanteIne':
+            $.ajax({
+                method: "POST",
+                dataType: 'json',
+                url: "./ra.view/MostrarDatosCoordinadorView.php"
+            }).done(function(result) {
+                console.log(result.success);
+                if (result.success === true) {
+                    $("#mdl_editar_simpine_datos_coordinador").empty();
+                    $('#mdl_editar_simpine_datos_coordinador').append("<option value ='1'>Sin Coordinador</option>");
+                    var array = result.result;
+                    array.forEach(function(coordinador, index) {
+                        $('#mdl_editar_simpine_datos_coordinador').append("<option value = '" + coordinador.coor_id + "'>" + coordinador.coor_nombre_completo + "</option>");
+                    });
+                }
+                console.log(result.result);
+                /*switch (result.catalogo_success) {
+                    case true:
+                        var array_catalogo = result.catalogo_result;
+                        array_catalogo.forEach(function(catalogo, index) {
+                            $('#' + id_elemento).append("<option value = '" + catalogo.catalogo_id + "'>" + catalogo.catalogo_descripcion + "</option>");
+                        });
+                        break;
+                    case false:
+                        alert(result.catalogo_success);
+                        break;
+                }*/
+            }).fail(function(error) {
+                swal('¡ADVERTENCIA ERROR1!', 'PROBLEMAS DE CONEXIÓN.', 'warning');
+            });
+            break;
         default:
             break;
     }
@@ -1992,10 +2459,10 @@ function eliminarSimpatizanteIne(simpine_id) {
                     .then((confirm) => {
                         if (confirm) {
                             //$(".bd-nuevo-director-modal-lg").modal('hide');
-                            //window.location.reload();
+                            window.location.reload();
                             //mostrarTablaAfiliados();
-                            mostrarTablaSimpatizantes();
-                            mostrarTablaSimpatizantesIne();
+                            //mostrarTablaSimpatizantes();
+                            //mostrarTablaSimpatizantesIne();
                         }
                     });
             } else {
@@ -2023,10 +2490,10 @@ function eliminarSimpatizante(simp_id) {
                     .then((confirm) => {
                         if (confirm) {
                             //$(".bd-nuevo-director-modal-lg").modal('hide');
-                            //window.location.reload();
+                            window.location.reload();
                             //mostrarTablaAfiliados();
-                            mostrarTablaSimpatizantes();
-                            mostrarTablaSimpatizantesIne();
+                            //mostrarTablaSimpatizantes();
+                            //mostrarTablaSimpatizantesIne();
                         }
                     });
             } else {
@@ -2054,10 +2521,10 @@ function btnEstaEnComite(simp_id) {
                     .then((confirm) => {
                         if (confirm) {
                             //$(".bd-nuevo-director-modal-lg").modal('hide');
-                            //window.location.reload();
+                            window.location.reload();
                             //mostrarTablaAfiliados();
-                            mostrarTablaSimpatizantes();
-                            mostrarTablaSimpatizantesIne();
+                            //mostrarTablaSimpatizantes();
+                            //mostrarTablaSimpatizantesIne();
                         }
                     });
             } else {

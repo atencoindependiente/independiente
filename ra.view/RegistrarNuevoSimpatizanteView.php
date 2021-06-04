@@ -17,6 +17,10 @@ $mdl_cp = $_POST["mdl_cp"];
 $mdl_directivo = $_POST["mdl_directivo"];
 $mdl_tel_celular = $_POST["mdl_tel_celular"];
 $mdl_comentarios = $_POST["mdl_comentarios"];
+$mdl_genero = $_POST["mdl_genero"];
+$mdl_simp_edad= $_POST["mdl_simp_edad"];
+$mdl_en_comite= $_POST["mdl_en_comite"];
+$mdl_discapacidad = $_POST["mdl_discapacidad"];
 $fecha_movimiento = date("Y-m-d H:i:s");
 $motivo_movimiento="Se agrega nuevo simpatizante.";
 //$usuario_movimiento = $_SESSION["usuario_id"];
@@ -32,6 +36,10 @@ $simpatizante= new Simpatizante(
     $mdl_cp,
     $mdl_tel_celular,
     $mdl_comentarios,
+    $mdl_genero,
+    $mdl_simp_edad,
+    $mdl_en_comite,
+    $mdl_discapacidad,
     $fecha_movimiento,
     $motivo_movimiento,
     $usuario_movimiento,

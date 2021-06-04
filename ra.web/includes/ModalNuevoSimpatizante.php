@@ -21,6 +21,32 @@
                 </div>
               </div>
               <div class="row">
+                <div class="col-md-6" align="center">
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="mdl_simp_en_comite">
+                    <label class="form-check-label" for="exampleCheck1">En comité</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="for_seccion">Padece alguna discapacidad:</label>
+                  <div class="row">
+                    <div class="col-md-6" align="center">
+                      <input class="form-check-input" type="radio" name="mdl_discapacidad" id="mdl_discapacidad_si" value="Si">
+                        <label class="form-check-label" for="mdl_discapacidad1">
+                          Si
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                      <input class="form-check-input" type="radio" name="mdl_discapacidad" id="mdl_discapacidad_no" value="No" checked>
+                        <label class="form-check-label" for="mdl_discapacidad2">
+                          No
+                        </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
                 <div class="col-md-3" align="center">Datos del Directivo:</div>
                 <div class="col-md-9">
                   <select class="form-control" id="mdl_simp_datos_directivo"> 
@@ -139,8 +165,24 @@
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="for_tel_celular">Teléfono Celular</label>
+                    <label for="for_tel_celular">Telefono Celular</label>
                     <input type="number" maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control" id="mdl_simp_tel_celular">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="for_genero">Genero</label>
+                    <select class="form-control" id="mdl_simp_genero"> 
+                      <option selected value="0000">Seleccione</option>
+                      <option value="Masculino">Masculino</option> 
+                      <option value="Femenino">Femenino</option> 
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="for_edad">Edad</label>
+                    <input type="number" maxlength="2" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control" id="mdl_simp_edad">
                   </div>
                 </div>
               </div>
