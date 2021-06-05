@@ -12,4 +12,5 @@ interface ISimpatizanteDAO {
     function primerComiteSimpatizante($simp_id,$fecha_movimiento,$motivo_movimiento,$usuario_movimiento);
     function actualizarGeneroFemeninoView($simp_id);
     function actualizarGeneroMasculinoView($simp_id);
+    function actualizarVotoSimpatizanteView($simp_id);
 }

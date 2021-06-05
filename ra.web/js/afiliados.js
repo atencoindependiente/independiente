@@ -2595,3 +2595,34 @@ function btnActualizarGeneroFemenino(simp_id) {
         }
     });
 }
+
+function btnYaVoto(simp_id) {
+    console.log("btnYaVoto: " + simp_id);
+    $.ajax({
+        url: './ra.view/ActualizarVotoSimpatizanteView.php',
+        dataType: 'json',
+        type: 'post',
+        data: {
+            simp_id: simp_id
+        },
+        success: function(data) {
+            //console.log(data);
+            if (data.sucess == true) {
+                //console.log("Fue correcto");
+                //guardarDatosSimpatizante(mdl_localidad, mdl_seccion, mdl_cp, mdl_directivo, mdl_lider, mdl_coordinador, mdl_nombre, mdl_apaterno, mdl_amaterno, mdl_direccion, mdl_tel_celular, mdl_comentarios);
+                swal("Éxito", "Se actualizo correctamente el VOTO del Simpatizante.", "success")
+                    .then((confirm) => {
+                        if (confirm) {
+                            //$(".bd-nuevo-director-modal-lg").modal('hide');
+                            window.location.reload();
+                            //mostrarTablaAfiliados();
+                            //mostrarTablaSimpatizantes();
+                            //mostrarTablaSimpatizantesIne();
+                        }
+                    });
+            } else {
+                swal("Advertencia", "Existen problemas de conexión 9. \nFavor de intentarlo mas tarde", "warning");
+            }
+        }
+    });
+}

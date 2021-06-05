@@ -150,8 +150,15 @@ class SimpatizanteDaoImpl implements ISimpatizanteDAO{
               
               $boton_elimina_simp=str_replace('simp_id', $fila['simp_id'], $botones->getBotonEliminarSimpatizante());
               $boton_editar_simpatizante= str_replace('simp_id', $fila['simp_id'], $botones->getBotonEditarSimpatizante());
+              $boton_voto=str_replace('simp_id', $fila['simp_id'], $botones->getBotonYaVoto());
               
-              $boton_accion=$btn_genero." ".$btn_comite." ".$boton_elimina_simp." ".$boton_editar_simpatizante;
+              $simp_voto =$fila['simp_voto'];
+              if($simp_voto==='SI'){
+                $boton_accion="Ya voto";
+              }else{
+                $boton_accion=$btn_genero." ".$btn_comite." ".$boton_elimina_simp." ".$boton_editar_simpatizante." ".$boton_voto;
+              }
+              
 
               $simp[] = array(
                             'simp_id' => $simp_id,
@@ -400,6 +407,20 @@ class SimpatizanteDaoImpl implements ISimpatizanteDAO{
       $datosDB = new DatosBD();
       $connect = $datosDB->connect();
       $query = "UPDATE simpatizante SET simp_genero='Femenino' WHERE simp_id='".$simp_id."'";
+      $result=mysqli_query($connect, $query);
+        if ($result){
+          $arrayResult=array('sucess'=>true);
+        }else{
+          $arrayResult=array('sucess'=>$result);
+        }
+      echo json_encode($arrayResult);
+      $connect->close();
+    }
+
+    function actualizarVotoSimpatizanteView($simp_id){
+      $datosDB = new DatosBD();
+      $connect = $datosDB->connect();
+      $query = "UPDATE simpatizante SET simp_voto='SI' WHERE simp_id='".$simp_id."'";
       $result=mysqli_query($connect, $query);
         if ($result){
           $arrayResult=array('sucess'=>true);

@@ -6,8 +6,10 @@ class Botones{
     private $botonEliminarSimpatizanteIne;
     private $botonEliminarSimpatizante;
     private $botonComiteSimpatizante;
+    private $botonComiteSimpatizanteVisitado;
     private $botonGeneroMasculinoSimpatizante;
     private $botonGeneroFemeninoSimpatizante;
+    private $botonVotar;
 
     
     function __construct(){       
@@ -20,6 +22,7 @@ class Botones{
         $this->botonComiteSimpatizanteVisitado = '<button class="btn btn-success btn-sm" style="background-color: #; border-color: #;"  title="En comite."><i class="fa fa-users fa-2x" aria-hidden="true"></i></button>';
         $this->botonGeneroMasculinoSimpatizante = '<button class="btn btn-link btn-sm" style="background-color: #; border-color: #;" onclick="btnActualizarGeneroMasculino(simp_id)" title="Masculino"><i class="fa fa-male fa-2x" aria-hidden="true"></i></button>';
         $this->botonGeneroFemeninoSimpatizante = '<button class="btn btn-link btn-sm" style="background-color: #; border-color: #;" onclick="btnActualizarGeneroFemenino(simp_id)" title="Femenino"><i class="fa fa-female fa-2x" aria-hidden="true"></i></button>';
+        $this->botonVotar = '<button class="btn btn-info btn-sm" style="background-color: #; border-color: #;" onclick="btnYaVoto(simp_id)" title="Votar"><i class="fa fa-check" aria-hidden="true"></i></button>';
     }
     
     function getBotonEditarSimpatizante(){
@@ -52,6 +55,10 @@ class Botones{
 
     function getBotonComiteSimpatizanteVisitado(){
         return $this->botonComiteSimpatizanteVisitado;
+    }
+
+    function getBotonYaVoto(){
+        return $this->botonVotar;
     }
   
 }

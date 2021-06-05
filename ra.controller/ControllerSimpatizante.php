@@ -67,5 +67,10 @@ class ControllerSimpatizante {
         $dao = new SimpatizanteDaoImpl();
         $dao->actualizarGeneroFemeninoView($simp_id);
     }
+
+    function actualizarVotoSimpatizanteView($simp_id){
+        $dao = new SimpatizanteDaoImpl();
+        $dao->actualizarVotoSimpatizanteView($simp_id);
+    }
 }
 ?>
